@@ -1,1 +1,2 @@
 # Uno
+ders çalışın
