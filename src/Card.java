@@ -23,17 +23,22 @@ public class Card {
             out = "Blue ";
         }
         else if( color == 2 ){
-            out = "Green";
+            out = "Green ";
         }
         else if( color == 3 ){
             out = "Red ";
         }
+        else if( color == 4 && value == 13){
+        	out = "Wild";
+        }
+        else if( color == 5 && value == 14){
+        	out = "+4";
+        }
 
         if( value < 10 ){ out += "" + value; }
         else if( value == 10 ){ out += "+2"; }
-        else if( value == 11 ){ out += "+4"; }
-        else if( value == 12 ){ out += "Skip"; }
-        else if( value == 13 ){out += "Wild"; }
+        else if( value == 11 ){ out += "Skip"; }
+        else if( value == 12 ){ out += "Reverse"; }
 
         return out;
     }
