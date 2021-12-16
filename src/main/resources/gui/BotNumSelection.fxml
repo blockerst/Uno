@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="182.0" prefWidth="414.0" text="Opponent selection" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.LobbyController">
+  <content>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="154.0" prefWidth="413.0">
+         <children>
+            <Label alignment="CENTER" layoutX="47.0" layoutY="48.0" prefHeight="35.0" prefWidth="128.0" text="Opponent Number:" />
+            <Button fx:id="startCompBut" alignment="CENTER" contentDisplay="CENTER" layoutX="169.0" layoutY="104.0" mnemonicParsing="false" onAction="#start" prefHeight="26.0" prefWidth="70.0" text="Start" textFill="#1c2bd6" />
+            <ChoiceBox layoutX="204.0" layoutY="53.0" prefWidth="150.0" />
+         </children></AnchorPane>
+  </content>
+</TitledPane>
