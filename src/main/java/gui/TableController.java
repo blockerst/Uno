@@ -1,22 +1,40 @@
 package gui;
-
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import java.io.IOException;
 
-public class LobbyController{
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class TableController implements Initializable{
+    @FXML
+    private  TableColumn<Competitor,Integer> rank;
+    @FXML
+    private  TableColumn<Competitor,String> plyrnam;
+    @FXML
+    private  TableColumn<Competitor,Integer> plyrgamenum;
+    @FXML
+    private  TableColumn<Competitor,Integer> gameswon;
+    @FXML
+    private  TableColumn<Competitor,Integer> point;
+    @FXML
+    private TableView<Competitor> leaderboard;
     @FXML
     private Button addfriend;
     @FXML
@@ -61,23 +79,21 @@ public class LobbyController{
     private Scene scene;
     private Parent root;
 
-    @FXML
-    public void toLogin(ActionEvent e) throws IOException{
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        stage.close();
-        root = FXMLLoader.load(getClass().getResource("LoginPage.fxml"));
-        stage = LoginController.getLobbyStage();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-    @FXML
-    public void toLobby(ActionEvent e) throws IOException{
-        root = FXMLLoader.load(getClass().getResource("Lobby.fxml"));
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        ObservableList<Competitor> list = FXCollections.observableArrayList(new Competitor(new SimpleIntegerProperty(1),new SimpleStringProperty("asd"),new SimpleIntegerProperty(3),new SimpleIntegerProperty(5),new SimpleIntegerProperty(6)));
+        System.out.println("sdv");
+        rank.setCellValueFactory(new PropertyValueFactory<>("rank"));
+        System.out.println("sdv");
+        plyrnam.setCellValueFactory(new PropertyValueFactory<>("name"));
+        System.out.println("sdv");
+        plyrgamenum.setCellValueFactory(new PropertyValueFactory<>("playedGameNum"));
+        System.out.println("sdv");
+        gameswon.setCellValueFactory(new PropertyValueFactory<>("gamesWon"));
+        System.out.println("sdv");
+        point.setCellValueFactory(new PropertyValueFactory<>("point"));
+        System.out.println("sdv");
+        leaderboard.setItems(list);
     }
     @FXML
     public void toSettings(MouseEvent e) throws IOException{
@@ -85,16 +101,6 @@ public class LobbyController{
         stage = new Stage();
         stage.setTitle("Settings");
         scene = new Scene(root);
-        stage.setScene(scene);
-        stage.getIcons().add(icon);
-        stage.showAndWait();
-    }
-    @FXML
-    public void toProfile(ActionEvent e) throws IOException{
-        root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
-        scene = new Scene(root);
-        stage = new Stage();
-        stage.setTitle("Profile");
         stage.setScene(scene);
         stage.getIcons().add(icon);
         stage.showAndWait();
@@ -140,40 +146,12 @@ public class LobbyController{
         //friendLabel.setText("You are friends!");
     }
     @FXML
-    public void createGame(ActionEvent e) throws IOException{
-        root = FXMLLoader.load(getClass().getResource("BotNumSelection.fxml"));
-        list = FXCollections.observableArrayList("1","2","3","4","5");
-        choiceOpp.setItems(list);
-        stage = new Stage();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.showAndWait();
-    }
-    public void start(ActionEvent e) throws IOException{
-        //int opponentNum = (int) choiceOpp.getValue();
-        root = FXMLLoader.load(getClass().getResource("Game.fxml"));
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        stage.close();
-        stage = LoginController.getLobbyStage();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-    @FXML
-    public void toLeaderBoard(ActionEvent e) throws IOException{
-        System.out.println("gşrdş");
-        root = FXMLLoader.load(getClass().getResource("Leaderboard.fxml"));
+    public void toLobby(ActionEvent e) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("Lobby.fxml"));
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-    @FXML
-    public void toTutorialMode(ActionEvent e) throws IOException{
-        root = FXMLLoader.load(getClass().getResource("Tutorial.fxml"));
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
+
 }

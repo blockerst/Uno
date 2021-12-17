@@ -18,8 +18,8 @@ public class GuiStage extends Application {
         Scene scene = new Scene(root,600,365);
         stage.setTitle("UNO");
         stage.setScene(scene);
-        /*Image icon = new Image("logo.png");
-        stage.getIcons().add(icon);*/
+        Image icon = new Image(getClass().getResourceAsStream("logo.png"));
+        stage.getIcons().add(icon);
         stage.show();
     }
 }
