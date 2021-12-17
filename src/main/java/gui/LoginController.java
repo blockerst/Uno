@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -32,6 +33,22 @@ public class LoginController implements Initializable {
     private Button returnlogin;
     @FXML
     private Button returnFromExists;
+    @FXML
+    private ImageView pic1;
+    @FXML
+    private ImageView pic2;
+    @FXML
+    private ImageView pic3;
+    @FXML
+    private ImageView pic4;
+    @FXML
+    private ImageView pic5;
+    @FXML
+    private ImageView pic6;
+    @FXML
+    private ImageView pic7;
+    @FXML
+    private ImageView pic8;
 
     private Stage stage;
     private Scene scene;
@@ -129,7 +146,7 @@ public class LoginController implements Initializable {
     }
     @FXML
     public void selectProfilePic(MouseEvent e) throws IOException{
-        //assign profilepic to chosen pic by e.getSource(); in database
+        ImageView chosenPic = (ImageView) e.getSource();
         root = FXMLLoader.load(getClass().getResource("Lobby.fxml"));
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene = new Scene(root);

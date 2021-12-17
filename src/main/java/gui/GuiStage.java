@@ -23,7 +23,5 @@ public class GuiStage extends Application {
         Image icon = new Image(getClass().getResourceAsStream("logo.png"));
         stage.getIcons().add(icon);
         stage.show();
-
-        LobbyController.checkOnline(stage);
     }
 }

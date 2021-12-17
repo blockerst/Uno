@@ -62,11 +62,6 @@ public class LobbyController{
     private Scene scene;
     private Parent root;
 
-    public static void checkOnline(Stage stage){
-        if(!stage.isShowing()){
-            LoginController.db.isOnlineOperation(LoginController.user, false);
-        }
-    }
     @FXML
     public void toLogin(ActionEvent e) throws IOException{
         LoginController.db.isOnlineOperation(LoginController.user,false);
@@ -165,7 +160,6 @@ public class LobbyController{
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        checkOnline(stage);
     }
     @FXML
     public void toLeaderBoard(ActionEvent e) throws IOException{
@@ -175,7 +169,6 @@ public class LobbyController{
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        checkOnline(stage);
     }
     @FXML
     public void toTutorialMode(ActionEvent e) throws IOException{
@@ -184,6 +177,5 @@ public class LobbyController{
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        checkOnline(stage);
     }
 }

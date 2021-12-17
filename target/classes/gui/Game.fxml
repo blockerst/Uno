@@ -41,7 +41,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Ellipse?>
 
-
 <FlowPane alignment="CENTER" columnHalignment="CENTER" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GameController">
    <children>
       <VBox prefHeight="589.0" prefWidth="849.0">
@@ -68,14 +67,14 @@
                      </image>
                   </ImageView>
                   <Button layoutX="542.0" layoutY="496.0" mnemonicParsing="false" text="UNO!" />
-                  <ImageView fx:id="topcardimage" fitHeight="76.0" fitWidth="50.0" layoutX="367.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="topcardimage" fitHeight="79.0" fitWidth="57.0" layoutX="360.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@cards/Blue+2.png" />
+                        <Image url="@../cards/Red0.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="topcardimage1" fitHeight="76.0" fitWidth="50.0" layoutX="433.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="topcardimage1" fitHeight="79.0" fitWidth="56.0" layoutX="436.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@cards/+4.png" />
+                        <Image url="@../cards/back2.jpeg" />
                      </image>
                   </ImageView>
                </children>
