@@ -61,7 +61,10 @@
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="122.0" prefWidth="215.0">
                <children>
                   <Label layoutX="80.0" layoutY="90.0" text="Username" />
-                  <ImageView fx:id="profilepic" fitHeight="62.0" fitWidth="71.0" layoutX="72.0" layoutY="22.0" onMouseClicked="#toSelfProfile" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="profilepic" fitHeight="62.0" fitWidth="71.0" layoutX="79.0" layoutY="19.0" onMouseClicked="#toSelfProfile" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@blank-profile-picture-973460_960_720.png" />
+                     </image></ImageView>
                   <ImageView fx:id="settings" fitHeight="36.0" fitWidth="41.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#toSettings" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images.png" />

@@ -13,8 +13,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
@@ -29,10 +31,6 @@ public class LoginController implements Initializable {
     private Button signin;
     @FXML
     private Button signup;
-    @FXML
-    private Button returnlogin;
-    @FXML
-    private Button returnFromExists;
     @FXML
     private ImageView pic1;
     @FXML
@@ -54,24 +52,23 @@ public class LoginController implements Initializable {
     private Scene scene;
     private Parent root;
     private static Stage lobbyStage;
-    private Stage priorStage;
     public static ConnectionSql db;
     public static User user;
+    public static Image profilePic;
+    private Image p1 = new Image(getClass().getResourceAsStream("1.png"));
+    private Image p2 = new Image(getClass().getResourceAsStream("2.png"));
+    private Image p3 = new Image(getClass().getResourceAsStream("3.png"));
+    private Image p4 = new Image(getClass().getResourceAsStream("4.png"));
+    private Image p5 = new Image(getClass().getResourceAsStream("5.png"));
+    private Image p6 = new Image(getClass().getResourceAsStream("6.png"));
+    private Image p7 = new Image(getClass().getResourceAsStream("7.png"));
+    private Image p8 = new Image(getClass().getResourceAsStream("8.png"));
 
-    public void updatePriorStage(Stage st){
-        priorStage = st;
-        if(st == null){
-            System.out.println("null");
-        }
-        System.out.println(1);
-    }
     public static Stage getLobbyStage() throws IOException{
         return lobbyStage;
     }
     @FXML
     public void signUp(ActionEvent e) throws IOException{
-        updatePriorStage((Stage)((Node)e.getSource()).getScene().getWindow());
-        System.out.println("6");
         String userName = tf.getText();
         String userPass = pf.getText();
         if(db.signUp(new User(userName,userPass))){
@@ -94,7 +91,6 @@ public class LoginController implements Initializable {
     }
     @FXML
     public void signIn(ActionEvent e) throws IOException {
-        System.out.println("3");
         String userName = tf.getText();
         String userPass = pf.getText();
         int check = db.singInCheck(new User(userName,userPass));
@@ -118,6 +114,8 @@ public class LoginController implements Initializable {
         else{
             //go to lobby
             user = new User(userName);
+            int id = db.getImageId(user);
+            profilePic = checkProfilePic(id);
             root = FXMLLoader.load(getClass().getResource("Lobby.fxml"));
             stage = (Stage)((Node)e.getSource()).getScene().getWindow();
             lobbyStage = stage;
@@ -125,11 +123,35 @@ public class LoginController implements Initializable {
             stage.setScene(scene);
             stage.show();
         }
-        System.out.println(userName + userPass);
+    }
+    public Image checkProfilePic(int id){
+        if(id == 1){
+            return p1;
+        }
+        else if(id == 2){
+            return p2;
+        }
+        else if(id == 3){
+            return p3;
+        }
+        else if(id == 4){
+            return p4;
+        }
+        else if(id == 5){
+            return p5;
+        }
+        else if(id == 6){
+            return p6;
+        }
+        else if(id == 7){
+            return p7;
+        }
+        else{
+            return p8;
+        }
     }
     @FXML
     public void returnLogin(ActionEvent e) throws IOException{
-        updatePriorStage((Stage)((Node)e.getSource()).getScene().getWindow());
         root = FXMLLoader.load(getClass().getResource("LoginPage.fxml"));
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -146,7 +168,9 @@ public class LoginController implements Initializable {
     }
     @FXML
     public void selectProfilePic(MouseEvent e) throws IOException{
-        ImageView chosenPic = (ImageView) e.getSource();
+        ImageView profilePic = (ImageView) e.getSource();
+        int id = Integer.parseInt(profilePic.getId().substring(3));
+        db.imageIdOperation(user,id);
         root = FXMLLoader.load(getClass().getResource("Lobby.fxml"));
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene = new Scene(root);
