@@ -58,6 +58,7 @@ public class ConnectionSql
             st.executeUpdate("Insert Into Users VALUES (null ,'"
                     + username +"', '"
                     + password +"',0,0,0,0,0,0,0);");
+            isOnlineOperation(user,true);
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
