@@ -1,5 +1,6 @@
 package gui;
 
+import Database.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -61,8 +62,14 @@ public class LobbyController{
     private Scene scene;
     private Parent root;
 
+    public static void checkOnline(Stage stage){
+        if(!stage.isShowing()){
+            LoginController.db.isOnlineOperation(LoginController.user, false);
+        }
+    }
     @FXML
     public void toLogin(ActionEvent e) throws IOException{
+        LoginController.db.isOnlineOperation(LoginController.user,false);
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         stage.close();
         root = FXMLLoader.load(getClass().getResource("LoginPage.fxml"));
@@ -78,6 +85,7 @@ public class LobbyController{
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+
     }
     @FXML
     public void toSettings(MouseEvent e) throws IOException{
@@ -143,7 +151,7 @@ public class LobbyController{
     public void createGame(ActionEvent e) throws IOException{
         root = FXMLLoader.load(getClass().getResource("BotNumSelection.fxml"));
         list = FXCollections.observableArrayList("1","2","3","4","5");
-        choiceOpp.setItems(list);
+        //choiceOpp.setItems(list);
         stage = new Stage();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -158,6 +166,7 @@ public class LobbyController{
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        checkOnline(stage);
     }
     @FXML
     public void toLeaderBoard(ActionEvent e) throws IOException{
@@ -167,6 +176,7 @@ public class LobbyController{
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        checkOnline(stage);
     }
     @FXML
     public void toTutorialMode(ActionEvent e) throws IOException{
@@ -175,5 +185,6 @@ public class LobbyController{
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        checkOnline(stage);
     }
 }

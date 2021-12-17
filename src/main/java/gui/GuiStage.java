@@ -1,5 +1,6 @@
 package gui;
 
+import Database.User;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,6 +12,7 @@ public class GuiStage extends Application {
 
     public static void main(String[] args) {
         launch(args);
+        LoginController.db.isOnlineOperation(LoginController.user, false);
     }
 
     public void start(Stage stage) throws Exception{
@@ -21,5 +23,7 @@ public class GuiStage extends Application {
         Image icon = new Image(getClass().getResourceAsStream("logo.png"));
         stage.getIcons().add(icon);
         stage.show();
+
+        LobbyController.checkOnline(stage);
     }
 }
