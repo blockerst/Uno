@@ -150,8 +150,7 @@ public class LobbyController{
     @FXML
     public void createGame(ActionEvent e) throws IOException{
         root = FXMLLoader.load(getClass().getResource("BotNumSelection.fxml"));
-        list = FXCollections.observableArrayList("1","2","3","4","5");
-        //choiceOpp.setItems(list);
+
         stage = new Stage();
         scene = new Scene(root);
         stage.setScene(scene);
