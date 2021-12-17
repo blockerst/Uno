@@ -475,6 +475,28 @@ public class ConnectionSql
         }
     }
 
+    public boolean imageIdOperation(User user, int id)
+    {
+        try {
+            st.executeUpdate("Update Users SET ProfileImageId = " + id + " where username = '" + user.getUsername() + "';");
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    public int getImageId(User user)
+    {
+        try {
+            ResultSet rs = st.executeQuery("Select ProfileImageId from Users where username = '" + user.getUsername() + "';");
+            rs.next();
+            return rs.getInt("ProfileImageId");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return -1;
+        }
+    }
+
     public void createStatementDB()
     {
         try {
