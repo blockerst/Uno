@@ -1,9 +1,12 @@
 package gui;
 
 import Database.User;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -16,8 +19,10 @@ import javafx.stage.Stage;
 import org.controlsfx.control.action.Action;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class SettingsController {
+public class SettingsController implements Initializable {
 
     @FXML
     private Button logout;
@@ -72,7 +77,8 @@ public class SettingsController {
         String oldpass = oldpassfield.getText();
         String newpass = newpassfield.getText();
         String newpassagain = newpassfieldagain.getText();
-        if(newpass.equals(newpassagain) && LoginController.db.changePassword(LoginController.user,new User(LoginController.user.getUsername(),newpass))){
+        System.out.println(newpass.equals(newpassagain));
+        if(newpass.equals(newpassagain) && LoginController.db.changePassword(new User(LoginController.user.getUsername(),oldpass),new User(LoginController.user.getUsername(),newpass))){
             passcorrectionlabel.setText("Password changed!");
             passcorrectionlabel.setTextFill(Color.web("#15d624"));
             passcorrectionlabel.setOpacity(1);
@@ -88,8 +94,15 @@ public class SettingsController {
     @FXML
     public void changeUserNam(ActionEvent e) throws IOException{
         String nam = newnamfield.getText();
-        LoginController.db.setUsername(LoginController.user,nam);
-        changenamlabel.setText("Username changed!");
-        changenamlabel.setVisible(true);
+        if(LoginController.db.changeUsername(LoginController.user,nam)){
+            changenamlabel.setText("Username changed!");
+            changenamlabel.setVisible(true);
+            LoginController.user.setUsername(nam);
+        }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        ObservableList list = FXCollections.observableArrayList();
     }
 }

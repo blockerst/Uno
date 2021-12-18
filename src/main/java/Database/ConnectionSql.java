@@ -54,10 +54,6 @@ public class ConnectionSql
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/uuuu");
         LocalDate localDate = LocalDate.now();
         String date = dtf.format(localDate);
-<<<<<<< HEAD
-=======
-
->>>>>>> main
         //first check there is a user who has that username and return false if it does
         if(checkUsername(user.getUsername())) return false;
 
@@ -66,11 +62,7 @@ public class ConnectionSql
 
             st.executeUpdate("Insert Into Users VALUES (null ,'"
                     + username +"', '"
-<<<<<<< HEAD
                     + password +"',0,0,0,0,0,0,0,'" +date +"');");
-=======
-                    + password +"',0,0,0,0,0,0,0,'" + date +"');");
->>>>>>> main
             isOnlineOperation(user,true);
             return true;
         } catch (SQLException e) {
@@ -513,19 +505,24 @@ public class ConnectionSql
 
     public boolean changePassword(User oldOne, User newOne)
     {
-        String oldPassword = "";
+        System.out.println(oldOne.getPassword());
+        System.out.println(newOne.getPassword());
+
+
+        String oldPassword = oldOne.getPassword();
+        String oldPasswordConfirmed = "";
         try {
             ResultSet rs = st.executeQuery("Select password FROM Users where username = '" + oldOne.getUsername() + "';");
             rs.next();
-            oldPassword = rs.getString("password");
+            oldPasswordConfirmed = rs.getString("password");
 
         } catch (SQLException e) {
             e.printStackTrace();
-            return false;
         }
-        if(oldPassword.equals(newOne.getPassword()))
+        if(oldPassword.equals(oldPasswordConfirmed))
         {
             try {
+                System.out.println("ff");
                 st.executeUpdate("Update Users SET password = '" + newOne.getPassword()
                         + "' where username = '" + oldOne.getUsername() + "';");
                 return true;

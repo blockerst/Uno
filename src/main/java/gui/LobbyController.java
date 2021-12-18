@@ -120,6 +120,7 @@ public class LobbyController implements Initializable {
         stage = new Stage();
         scene = new Scene(root);
         stage.setScene(scene);
+        stage.getIcons().add(icon);
         stage.showAndWait();
     }
 
