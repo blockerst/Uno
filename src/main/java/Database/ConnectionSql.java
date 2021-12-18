@@ -1,5 +1,7 @@
 package Database;
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class ConnectionSql
@@ -49,15 +51,19 @@ public class ConnectionSql
     {
         String username = user.getUsername();
         String password = user.getPassword();
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/uuuu");
+        LocalDate localDate = LocalDate.now();
+        String date = dtf.format(localDate);
 
         //first check there is a user who has that username and return false if it does
         if(checkUsername(user.getUsername())) return false;
 
         //create user in database
         try {
+
             st.executeUpdate("Insert Into Users VALUES (null ,'"
                     + username +"', '"
-                    + password +"',0,0,0,0,0,0,0);");
+                    + password +"',0,0,0,0,0,0,0,'" + date +"');");
             isOnlineOperation(user,true);
             return true;
         } catch (SQLException e) {
@@ -496,6 +502,32 @@ public class ConnectionSql
             e.printStackTrace();
             return -1;
         }
+    }
+
+    public boolean changePassword(User oldOne, User newOne)
+    {
+        String oldPassword = "";
+        try {
+            ResultSet rs = st.executeQuery("Select password FROM Users where username = '" + oldOne.getUsername() + "';");
+            rs.next();
+            oldPassword = rs.getString("password");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+        if(oldPassword.equals(newOne.getPassword()))
+        {
+            try {
+                st.executeUpdate("Update Users SET password = '" + newOne.getPassword()
+                        + "' where username = '" + oldOne.getUsername() + "';");
+                return true;
+            } catch (SQLException e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return false;
     }
 
     public void createStatementDB()

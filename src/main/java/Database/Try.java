@@ -1,5 +1,7 @@
 package Database;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Try {
@@ -11,14 +13,10 @@ public class Try {
         User user3 = new User("göktuğYilmaz", "xyz6789");
         ConnectionSql DB = ConnectionSql.getInstance();
 
-        DB.friendRequestOperation(user,user1,true);
-        DB.incrementPoint(user,31);
-        ArrayList<User> l;
-        l = DB.getTop100();
-        for(int i = 0; i < l.size(); i++)
-        {
-            System.out.println(l.get(i).getUsername());
-        }
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/uuuu");
+        LocalDate localDate = LocalDate.now();
+        String date = dtf.format(localDate);
+        System.out.println(dtf.format(localDate));
 
     }
 }
