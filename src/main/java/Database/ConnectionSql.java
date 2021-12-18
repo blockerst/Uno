@@ -385,6 +385,7 @@ public class ConnectionSql
             user.setWinStreak(rs.getInt("winStreak"));
             user.setImageId(rs.getInt("ProfileImageId"));
             user.setIsOnline(rs.getInt("isOnline"));
+            user.setDate(rs.getString("date"));
             user.setRank(getRankUser(user));
             return user;
 

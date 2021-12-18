@@ -6,6 +6,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -21,6 +22,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class LeaderboardController implements Initializable {
@@ -66,6 +68,14 @@ public class LeaderboardController implements Initializable {
     private ImageView profilepic;
     @FXML
     private ImageView selfprofilepic;
+    @FXML
+    private ListView friendlistview;
+    @FXML
+    private ListView friendonlinelistview;
+    @FXML
+    private SplitPane split;
+    @FXML
+    private Label usernam;
 
     private final Image icon = new Image(getClass().getResourceAsStream("logo.png"));
     private int oppNum;
@@ -133,6 +143,7 @@ public class LeaderboardController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        usernam.setText(LoginController.user.getUsername());
         ldrbrdprofile.setImage(LoginController.profilePic);
         rank.setCellValueFactory(new PropertyValueFactory<>("rank"));
         plyrnam.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -140,7 +151,49 @@ public class LeaderboardController implements Initializable {
         gameswon.setCellValueFactory(new PropertyValueFactory<>("gamesWon"));
         point.setCellValueFactory(new PropertyValueFactory<>("point"));
         //here you add the friends from an array from the database
-        ObservableList<Competitor> list = FXCollections.observableArrayList(new Competitor(new SimpleIntegerProperty(1),new SimpleStringProperty("asd"),new SimpleIntegerProperty(3),new SimpleIntegerProperty(5),new SimpleIntegerProperty(6)));
-        leaderboard.setItems(list);
+        ObservableList<Competitor> lista = FXCollections.observableArrayList();
+        ArrayList<User> users = LoginController.db.getTop100();
+
+        for(int i = 0; i < users.size(); i++){
+            User u = users.get(i);
+            lista.add(i,new Competitor(new SimpleIntegerProperty(u.getRank()),new SimpleStringProperty(u.getUsername()),new SimpleIntegerProperty(u.getNOGame()),new SimpleIntegerProperty(u.getNOWin()),new SimpleIntegerProperty(u.getPoint())));
+        }
+        leaderboard.setItems(lista);
+        ArrayList<User> list = LoginController.db.getFriends(LoginController.user);
+        for(int i = 0; i < list.size(); i++){
+            Label isOnline = new Label("");
+            friendlistview.getItems().add(i,list.get(i).getUsername());
+            isOnline.setText("Online");
+            isOnline.setStyle("-fx-text-fill: green");
+            if(list.get(i).getIsOnline() == 0){
+                isOnline.setText("Offline");
+                isOnline.setStyle("-fx-text-fill: red");
+            }
+            friendonlinelistview.getItems().add(i,isOnline);
+            split.setStyle("-fx-box-border: transparent;");
+            friendlistview.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent e) {
+                    LobbyController.friendname = (String)friendlistview.getSelectionModel().getSelectedItem();
+                    try {
+                        root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                    stage = new Stage();
+                    scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.setTitle("Profile");
+                    stage.initModality(Modality.APPLICATION_MODAL);
+                    if (e.getSource() == profile) {
+                        stage.initOwner(profile.getScene().getWindow());
+                    } else if (e.getSource() == ldrbrdprofile) {
+                        stage.initOwner(ldrbrdprofile.getScene().getWindow());
+                    }
+                    stage.getIcons().add(icon);
+                    stage.showAndWait();
+                }
+            });
+        }
     }
 }

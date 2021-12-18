@@ -1,5 +1,6 @@
 package gui;
 
+import Database.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -20,22 +21,25 @@ public class AddFriendController {
 
     @FXML
     public void sendFriendshipRequest(ActionEvent e) throws IOException {
-        //String userName = friendField.getText();
-        //if the user exists and we are not friends with them
-        friendLabel.setText("Request Sent!");
-        friendLabel.setTextFill(Color.web("#12e149"));
-        friendLabel.setOpacity(1);
-        friendLabel.setVisible(true);
-        System.out.println(88);
-        //else if the user does not exist
-        //friendLabel.setText("Account Does Not Exist!");
-        //friendLabel.setTextFill(Color.web("#c8de14"));
-        //friendLabel.setOpacity(1);
-        //friendLabel.setVisible(true);
-        //else the user and us are friends
-        //friendLabel.setText("You Are Already Friends!");
-        //friendLabel.setTextFill(Color.web("#c8de14"));
-        //friendLabel.setOpacity(1);
-        //friendLabel.setVisible(true);
+        String userName = friendField.getText();
+        int state = LoginController.db.addFriend(LoginController.user,new User(userName));
+        if(state == 1){
+            friendLabel.setText("Request Sent!");
+            friendLabel.setTextFill(Color.web("#12e149"));
+            friendLabel.setOpacity(1);
+            friendLabel.setVisible(true);
+        }
+        else if(state == -1){
+            friendLabel.setText("Account Does Not Exist!");
+            friendLabel.setTextFill(Color.web("#c8de14"));
+            friendLabel.setOpacity(1);
+            friendLabel.setVisible(true);
+        }
+        else{
+            friendLabel.setText("You Are Already Friends!");
+            friendLabel.setTextFill(Color.web("#c8de14"));
+            friendLabel.setOpacity(1);
+            friendLabel.setVisible(true);
+        }
     }
 }

@@ -15,6 +15,7 @@ public class User
     private int isOnline;
     private ArrayList<User> friends;
     private ArrayList<Reward> rewards;
+    private String date;
 
 
 
@@ -142,5 +143,13 @@ public class User
 
     public void setIsOnline(int isOnline) {
         this.isOnline = isOnline;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }

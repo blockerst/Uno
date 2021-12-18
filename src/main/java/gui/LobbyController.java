@@ -4,6 +4,7 @@ import Database.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -18,6 +19,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class LobbyController implements Initializable {
@@ -53,10 +55,19 @@ public class LobbyController implements Initializable {
     private ScrollPane selfprofilescrollAnchorPane;
     @FXML
     private ImageView profilepic;
+    @FXML
+    private ListView friendlistview;
+    @FXML
+    private ListView friendonlinelistview;
+    @FXML
+    private SplitPane split;
+    @FXML
+    private Label usernam;
 
     private final Image icon = new Image(getClass().getResourceAsStream("logo.png"));
     private Stage stage;
     public static Stage lobbystage;
+    public static String friendname;
     private Scene scene;
     private Parent root;
 
@@ -155,7 +166,44 @@ public class LobbyController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("inir");
+        usernam.setText(LoginController.user.getUsername());
         profilepic.setImage(LoginController.profilePic);
+        ArrayList<User> list = LoginController.db.getFriends(LoginController.user);
+        for(int i = 0; i < list.size(); i++){
+            Label isOnline = new Label("");
+            friendlistview.getItems().add(i,list.get(i).getUsername());
+            isOnline.setText("Online");
+            isOnline.setStyle("-fx-text-fill: green");
+            if(list.get(i).getIsOnline() == 0){
+                System.out.println("asdaaaa");
+                isOnline.setText("Offline");
+                isOnline.setStyle("-fx-text-fill: red");
+            }
+            friendonlinelistview.getItems().add(i,isOnline);
+        }
+        split.setStyle("-fx-box-border: transparent;");
+        friendlistview.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent e) {
+                friendname = (String)friendlistview.getSelectionModel().getSelectedItem();
+                try {
+                    root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+                stage = new Stage();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.setTitle("Profile");
+                stage.initModality(Modality.APPLICATION_MODAL);
+                if (e.getSource() == profile) {
+                    stage.initOwner(profile.getScene().getWindow());
+                } else if (e.getSource() == ldrbrdprofile) {
+                    stage.initOwner(ldrbrdprofile.getScene().getWindow());
+                }
+                stage.getIcons().add(icon);
+                stage.showAndWait();
+            }
+        });
     }
 }

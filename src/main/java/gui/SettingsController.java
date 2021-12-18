@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class SettingsController implements Initializable {
+public class SettingsController{
 
     @FXML
     private Button logout;
@@ -99,10 +99,5 @@ public class SettingsController implements Initializable {
             changenamlabel.setVisible(true);
             LoginController.user.setUsername(nam);
         }
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        ObservableList list = FXCollections.observableArrayList();
     }
 }
