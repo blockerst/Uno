@@ -102,7 +102,11 @@ public class ConnectionSql
             ResultSet rs = st.executeQuery("Select * from Friends where (username1 = '"+ friend.getUsername() +"' AND " +
                     "username2 = '" + user.getUsername() + "') OR (username2 = '"+ friend.getUsername() + "' AND username1 = '" +
                     user.getUsername()+"')");
-            if(rs.next()) return 0;
+            if (rs.next()) {
+                int isOnline = rs.getInt("Confirmed");
+                if (isOnline == 0) return 0;
+                if (isOnline == 1) return 2;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
             return -2;

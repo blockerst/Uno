@@ -26,20 +26,20 @@ public class AddFriendController {
         if(state == 1){
             friendLabel.setText("Request Sent!");
             friendLabel.setTextFill(Color.web("#12e149"));
-            friendLabel.setOpacity(1);
-            friendLabel.setVisible(true);
         }
         else if(state == -1){
             friendLabel.setText("Account Does Not Exist!");
             friendLabel.setTextFill(Color.web("#c8de14"));
-            friendLabel.setOpacity(1);
-            friendLabel.setVisible(true);
         }
-        else{
+        else if(state == 0){
+            friendLabel.setText("Your Request Is Sent!");
+            friendLabel.setTextFill(Color.web("#c8de14"));
+        }
+        else if(state == 2){
             friendLabel.setText("You Are Already Friends!");
             friendLabel.setTextFill(Color.web("#c8de14"));
-            friendLabel.setOpacity(1);
-            friendLabel.setVisible(true);
         }
+        friendLabel.setOpacity(1);
+        friendLabel.setVisible(true);
     }
 }
