@@ -1,4 +1,6 @@
 package gui;
+
+import Database.User;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -17,12 +19,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class TableController implements Initializable{
+public class LeaderboardController implements Initializable {
     @FXML
     private  TableColumn<Competitor,Integer> rank;
     @FXML
@@ -38,11 +39,7 @@ public class TableController implements Initializable{
     @FXML
     private Button addfriend;
     @FXML
-    private Button crtGame;
-    @FXML
     private Button ldrboard;
-    @FXML
-    private Button tutorial;
     @FXML
     private ImageView settings;
     @FXML
@@ -56,10 +53,6 @@ public class TableController implements Initializable{
     @FXML
     private Label friendLabel;
     @FXML
-    private Button startCompBut;
-    @FXML
-    private ComboBox choiceOpp;
-    @FXML
     private Button leaderfriendbut;
     @FXML
     private ImageView ldrbrdprofile;
@@ -71,6 +64,10 @@ public class TableController implements Initializable{
     private Button tolobby;
     @FXML
     private ScrollPane selfprofilescrollAnchorPane;
+    @FXML
+    private ImageView profilepic;
+    @FXML
+    private ImageView selfprofilepic;
 
     private final Image icon = new Image(getClass().getResourceAsStream("logo.png"));
     private int oppNum;
@@ -79,21 +76,14 @@ public class TableController implements Initializable{
     private Scene scene;
     private Parent root;
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        ObservableList<Competitor> list = FXCollections.observableArrayList(new Competitor(new SimpleIntegerProperty(1),new SimpleStringProperty("asd"),new SimpleIntegerProperty(3),new SimpleIntegerProperty(5),new SimpleIntegerProperty(6)));
-        System.out.println("sdv");
-        rank.setCellValueFactory(new PropertyValueFactory<>("rank"));
-        System.out.println("sdv");
-        plyrnam.setCellValueFactory(new PropertyValueFactory<>("name"));
-        System.out.println("sdv");
-        plyrgamenum.setCellValueFactory(new PropertyValueFactory<>("playedGameNum"));
-        System.out.println("sdv");
-        gameswon.setCellValueFactory(new PropertyValueFactory<>("gamesWon"));
-        System.out.println("sdv");
-        point.setCellValueFactory(new PropertyValueFactory<>("point"));
-        System.out.println("sdv");
-        leaderboard.setItems(list);
+    @FXML
+    public void toLobby(ActionEvent e) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("Lobby.fxml"));
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
     }
     @FXML
     public void toSettings(MouseEvent e) throws IOException{
@@ -101,6 +91,16 @@ public class TableController implements Initializable{
         stage = new Stage();
         stage.setTitle("Settings");
         scene = new Scene(root);
+        stage.setScene(scene);
+        stage.getIcons().add(icon);
+        stage.showAndWait();
+    }
+    @FXML
+    public void toProfile(ActionEvent e) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
+        scene = new Scene(root);
+        stage = new Stage();
+        stage.setTitle("Profile");
         stage.setScene(scene);
         stage.getIcons().add(icon);
         stage.showAndWait();
@@ -133,25 +133,16 @@ public class TableController implements Initializable{
         stage.getIcons().add(icon);
         stage.showAndWait();
     }
-    @FXML
-    public void sendFriendshipRequest(ActionEvent e) throws IOException{
-        //String userName = friendField.getText();
-        //if the user exists and we are not friends with them
-        friendLabel.setText("Request sent!");
-        friendLabel.setVisible(true);
-        System.out.println(88);
-        //else if the user does not exist
-        //friendLabel.setText("User does not exist!");
-        //else the user and us are friends
-        //friendLabel.setText("You are friends!");
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        ldrbrdprofile.setImage(LoginController.profilePic);
+        rank.setCellValueFactory(new PropertyValueFactory<>("rank"));
+        plyrnam.setCellValueFactory(new PropertyValueFactory<>("name"));
+        plyrgamenum.setCellValueFactory(new PropertyValueFactory<>("playedGameNum"));
+        gameswon.setCellValueFactory(new PropertyValueFactory<>("gamesWon"));
+        point.setCellValueFactory(new PropertyValueFactory<>("point"));
+        //here you add the friends from an array from the database
+        ObservableList<Competitor> list = FXCollections.observableArrayList(new Competitor(new SimpleIntegerProperty(1),new SimpleStringProperty("asd"),new SimpleIntegerProperty(3),new SimpleIntegerProperty(5),new SimpleIntegerProperty(6)));
+        leaderboard.setItems(list);
     }
-    @FXML
-    public void toLobby(ActionEvent e) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("Lobby.fxml"));
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
 }
