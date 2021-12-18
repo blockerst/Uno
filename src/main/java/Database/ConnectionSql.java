@@ -530,6 +530,18 @@ public class ConnectionSql
         return false;
     }
 
+    public boolean changeUsername(User userOld, String newUsername)
+    {
+        try {
+            st.executeUpdate("Update Users SET username = '" + newUsername
+                    + "' where username = '" + userOld.getUsername() + "';");
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
     public void createStatementDB()
     {
         try {
