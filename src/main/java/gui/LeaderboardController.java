@@ -43,8 +43,6 @@ public class LeaderboardController implements Initializable {
     @FXML
     private ImageView settings;
     @FXML
-    private Button logout;
-    @FXML
     private ImageView profile;
     @FXML
     private TextField friendField;

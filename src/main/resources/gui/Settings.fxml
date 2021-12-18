@@ -10,26 +10,34 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.LobbyController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SettingsController">
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0">
          <image>
-            <Image url="@1.jpg" />
+            <Image url="@candidate%202.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="266.0" layoutY="14.0" text="Settings" textFill="#296ecc">
+      <Label layoutX="229.0" layoutY="27.0" text="Settings" textFill="#ced914">
+         <font>
+            <Font name="System Bold" size="37.0" />
+         </font>
+      </Label>
+      <CheckBox fx:id="darktehemecheckbox" layoutX="96.0" layoutY="91.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="149.0" text="Dark Theme" textFill="#faf6f6">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font></CheckBox>
+      <PasswordField fx:id="newpassfield" layoutX="93.0" layoutY="200.0" promptText="New Password" />
+      <PasswordField fx:id="newpassfieldagain" layoutX="93.0" layoutY="240.0" promptText=" New Password Again" />
+      <PasswordField fx:id="oldpassfield" layoutX="92.0" layoutY="160.0" promptText="Old Password" />
+      <Button fx:id="changepass" layoutX="112.0" layoutY="280.0" mnemonicParsing="false" text="Change Password" />
+      <Button fx:id="logout" layoutX="269.0" layoutY="320.0" mnemonicParsing="false" onAction="#toLogin" text="Log Out" textFill="#ec0909" />
+      <TextField fx:id="newnamfield" layoutX="350.0" layoutY="240.0" promptText="New Username" />
+      <Button fx:id="changenam" layoutX="368.0" layoutY="280.0" mnemonicParsing="false" text="Change Username" />
+      <Button fx:id="seefriendreq" layoutX="352.0" layoutY="88.0" mnemonicParsing="false" text="See Friendship Requests" textFill="#068e22" />
+      <Label fx:id="passcorrectionlabel" alignment="CENTER" contentDisplay="CENTER" layoutX="78.0" layoutY="317.0" prefHeight="32.0" prefWidth="177.0" text="correction" textFill="#d44217" visible="false">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <CheckBox layoutX="93.0" layoutY="91.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="152.0" text="Dark Theme" textFill="#e11111" />
-      <PasswordField layoutX="93.0" layoutY="200.0" promptText="New Password" />
-      <PasswordField layoutX="93.0" layoutY="240.0" promptText=" New Password Again" />
-      <PasswordField layoutX="92.0" layoutY="160.0" promptText="Old Password" />
-      <Button layoutX="112.0" layoutY="280.0" mnemonicParsing="false" text="Change Password" />
-      <Button fx:id="logout" layoutX="269.0" layoutY="320.0" mnemonicParsing="false" onAction="#toLogin" text="Log Out" textFill="#ec0909" />
-      <TextField layoutX="350.0" layoutY="240.0" promptText="New Username" />
-      <Button layoutX="368.0" layoutY="280.0" mnemonicParsing="false" text="Change Username" />
-      <Button layoutX="352.0" layoutY="88.0" mnemonicParsing="false" text="See Friendship Requests" textFill="#068e22" />
    </children>
 </Pane>

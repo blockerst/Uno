@@ -65,6 +65,9 @@ public class LoginController implements Initializable {
     private Image p8 = new Image(getClass().getResourceAsStream("8.png"));
 
     public static Stage getLobbyStage() throws IOException{
+        if(lobbyStage == null){
+            System.out.println("null");
+        }
         return lobbyStage;
     }
     @FXML
@@ -76,6 +79,7 @@ public class LoginController implements Initializable {
             user = new User(userName,userPass);
             root = FXMLLoader.load(getClass().getResource("SignedUp.fxml"));
             stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+            lobbyStage = stage;
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
@@ -115,6 +119,7 @@ public class LoginController implements Initializable {
             //go to lobby
             user = new User(userName);
             int id = db.getImageId(user);
+            System.out.println("idsingin: "+ id);
             profilePic = checkProfilePic(id);
             root = FXMLLoader.load(getClass().getResource("Lobby.fxml"));
             stage = (Stage)((Node)e.getSource()).getScene().getWindow();
@@ -125,28 +130,37 @@ public class LoginController implements Initializable {
         }
     }
     public Image checkProfilePic(int id){
+        System.out.println("x");
         if(id == 1){
+            System.out.println("x");
             return p1;
         }
         else if(id == 2){
+            System.out.println("x");
             return p2;
         }
         else if(id == 3){
+            System.out.println("x");
             return p3;
         }
         else if(id == 4){
+            System.out.println("x");
             return p4;
         }
         else if(id == 5){
+            System.out.println("x");
             return p5;
         }
         else if(id == 6){
+            System.out.println("x");
             return p6;
         }
         else if(id == 7){
+            System.out.println("x");
             return p7;
         }
         else{
+            System.out.println("x");
             return p8;
         }
     }
@@ -168,9 +182,14 @@ public class LoginController implements Initializable {
     }
     @FXML
     public void selectProfilePic(MouseEvent e) throws IOException{
-        ImageView profilePic = (ImageView) e.getSource();
-        int id = Integer.parseInt(profilePic.getId().substring(3));
+        ImageView profilepic = (ImageView) e.getSource();
+        int id = Integer.parseInt(profilepic.getId().substring(3));
+        System.out.println("id: "+id);
         db.imageIdOperation(user,id);
+        id = db.getImageId(user);
+        System.out.println("idsingin: "+ id);
+        profilePic = profilepic.getImage();
+        profilePic = checkProfilePic(id);
         root = FXMLLoader.load(getClass().getResource("Lobby.fxml"));
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene = new Scene(root);

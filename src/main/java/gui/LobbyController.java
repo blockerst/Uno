@@ -36,12 +36,6 @@ public class LobbyController implements Initializable {
     @FXML
     private ImageView profile;
     @FXML
-    private TextField friendField;
-    @FXML
-    private Button sendReq;
-    @FXML
-    private Label friendLabel;
-    @FXML
     private Button startCompBut;
     @FXML
     private ComboBox choiceOpp;
@@ -62,20 +56,10 @@ public class LobbyController implements Initializable {
 
     private final Image icon = new Image(getClass().getResourceAsStream("logo.png"));
     private Stage stage;
+    public static Stage lobbystage;
     private Scene scene;
     private Parent root;
 
-    @FXML
-    public void toLogin(ActionEvent e) throws IOException {
-        LoginController.db.isOnlineOperation(LoginController.user, false);
-        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        stage.close();
-        root = FXMLLoader.load(getClass().getResource("LoginPage.fxml"));
-        stage = LoginController.getLobbyStage();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
 
     @FXML
     public void toSettings(MouseEvent e) throws IOException {
@@ -131,19 +115,6 @@ public class LobbyController implements Initializable {
     }
 
     @FXML
-    public void sendFriendshipRequest(ActionEvent e) throws IOException {
-        //String userName = friendField.getText();
-        //if the user exists and we are not friends with them
-        friendLabel.setText("Request sent!");
-        friendLabel.setVisible(true);
-        System.out.println(88);
-        //else if the user does not exist
-        //friendLabel.setText("User does not exist!");
-        //else the user and us are friends
-        //friendLabel.setText("You are friends!");
-    }
-
-    @FXML
     public void createGame(ActionEvent e) throws IOException {
         root = FXMLLoader.load(getClass().getResource("BotNumSelection.fxml"));
         stage = new Stage();
@@ -156,7 +127,7 @@ public class LobbyController implements Initializable {
         root = FXMLLoader.load(getClass().getResource("Game.fxml"));
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
         stage.close();
-        stage = LoginController.getLobbyStage();
+        stage = LobbyController.lobbystage;
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -183,6 +154,7 @@ public class LobbyController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        System.out.println("inir");
         profilepic.setImage(LoginController.profilePic);
     }
 }

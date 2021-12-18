@@ -47,7 +47,7 @@
          <children>
             <Pane prefHeight="598.0" prefWidth="849.0">
                <children>
-                  <Ellipse fill="DODGERBLUE" layoutX="425.0" layoutY="509.0" opacity="0.32" radiusX="83.0" radiusY="57.0" stroke="#fcf9f9" strokeType="INSIDE" />
+                  <Ellipse fill="DODGERBLUE" layoutX="436.0" layoutY="509.0" opacity="0.32" radiusX="83.0" radiusY="57.0" stroke="#fcf9f9" strokeType="INSIDE" />
                   <Label alignment="CENTER" layoutX="392.0" layoutY="477.0" prefHeight="17.0" prefWidth="67.0" text="User1" />
                   <Label alignment="CENTER" layoutX="392.0" layoutY="518.0" prefHeight="17.0" prefWidth="67.0" text="Timer" />
                   <Ellipse fill="DODGERBLUE" layoutX="424.0" layoutY="97.0" opacity="0.32" radiusX="83.0" radiusY="57.0" stroke="#fcf9f9" strokeType="INSIDE" />
@@ -60,7 +60,19 @@
                   <Label alignment="CENTER" layoutX="665.0" layoutY="218.0" prefHeight="17.0" prefWidth="73.0" text="User2" />
                   <Label alignment="CENTER" contentDisplay="CENTER" layoutX="676.0" layoutY="260.0" prefHeight="17.0" prefWidth="50.0" text="Timer" />
                   <Button fx:id="exit" layoutX="789.0" layoutY="24.0" mnemonicParsing="false" onAction="#toLobby" prefHeight="32.0" prefWidth="35.0" style="-fx-background-radius: 100;" text="Exit" />
-                  <FlowPane fx:id="playercardsFlowPane" alignment="CENTER" columnHalignment="CENTER" layoutX="157.0" layoutY="355.0" prefHeight="96.0" prefWidth="543.0" />
+                  <FlowPane fx:id="playercardsFlowPane" alignment="CENTER" columnHalignment="CENTER" layoutX="165.0" layoutY="356.0" prefHeight="96.0" prefWidth="543.0">
+                     <children>
+                        <ImageView fx:id="topcardimage2" fitHeight="79.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../cards/Red0.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="topcardimage3" fitHeight="79.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../cards/Red0.png" />
+                           </image>
+                        </ImageView>
+                     </children></FlowPane>
                   <ImageView fitHeight="178.0" fitWidth="355.0" layoutX="250.0" layoutY="163.0">
                      <image>
                         <Image url="@holdem-poker-layout-6-green.png" />

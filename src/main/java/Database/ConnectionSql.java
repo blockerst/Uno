@@ -1,5 +1,7 @@
 package Database;
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class ConnectionSql
@@ -49,7 +51,9 @@ public class ConnectionSql
     {
         String username = user.getUsername();
         String password = user.getPassword();
-
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/uuuu");
+        LocalDate localDate = LocalDate.now();
+        String date = dtf.format(localDate);
         //first check there is a user who has that username and return false if it does
         if(checkUsername(user.getUsername())) return false;
 
@@ -57,7 +61,8 @@ public class ConnectionSql
         try {
             st.executeUpdate("Insert Into Users VALUES (null ,'"
                     + username +"', '"
-                    + password +"',0,0,0,0,0,0,0);");
+                    + password +"',0,0,0,0,0,0,0,'" +date +"');");
+            isOnlineOperation(user,true);
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
