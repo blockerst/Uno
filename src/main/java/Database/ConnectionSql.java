@@ -90,6 +90,7 @@ public class ConnectionSql
      * return -1: user cannot be found
      * return  0: it is in process(you or your friend doesn't accept request) confirmed = 0
      * return  1: successfully done
+     * return  2: already friend
      * return -2: some other errors in database (sql)
      * */
     public int addFriend(User user, User friend)
@@ -107,10 +108,17 @@ public class ConnectionSql
                 if (isOnline == 0) return 0;
                 if (isOnline == 1) return 2;
             }
+            if(rs.next()){
+                int isOnline = rs.getInt("Confirmed");
+                if(isOnline == 0) return 0;
+                if(isOnline == 1) return 2;
+            }
+
         } catch (SQLException e) {
             e.printStackTrace();
             return -2;
         }
+
 
         //insert values into table
         try {
@@ -551,6 +559,18 @@ public class ConnectionSql
         }
     }
 
+    public boolean removeFriend(User user, User friend)
+    {
+        try {
+            st.executeUpdate("Delete From Friends where (username1 = '"+ friend.getUsername() +"' AND " +
+                    "username2 = '" + user.getUsername() + "') OR (username2 = '"+ friend.getUsername() + "' AND username1 = '" +
+                    user.getUsername()+"')");
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
     public void createStatementDB()
     {
         try {
