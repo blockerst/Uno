@@ -41,7 +41,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Ellipse?>
 
-<FlowPane alignment="CENTER" columnHalignment="CENTER" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GameController">
+<FlowPane alignment="CENTER" columnHalignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GameController">
    <children>
       <VBox prefHeight="589.0" prefWidth="849.0">
          <children>
@@ -59,7 +59,6 @@
                   <Ellipse fill="DODGERBLUE" layoutX="700.0" layoutY="244.0" opacity="0.32" radiusX="83.0" radiusY="57.0" stroke="#fcf9f9" strokeType="INSIDE" />
                   <Label alignment="CENTER" layoutX="665.0" layoutY="218.0" prefHeight="17.0" prefWidth="73.0" text="User2" />
                   <Label alignment="CENTER" contentDisplay="CENTER" layoutX="676.0" layoutY="260.0" prefHeight="17.0" prefWidth="50.0" text="Timer" />
-                  <Button fx:id="exit" layoutX="789.0" layoutY="24.0" mnemonicParsing="false" onAction="#toLobby" prefHeight="32.0" prefWidth="35.0" style="-fx-background-radius: 100;" text="Exit" />
                   <FlowPane fx:id="playercardsFlowPane" alignment="CENTER" columnHalignment="CENTER" layoutX="165.0" layoutY="356.0" prefHeight="96.0" prefWidth="543.0">
                      <children>
                         <ImageView fx:id="topcardimage2" fitHeight="79.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
@@ -87,6 +86,11 @@
                   <ImageView fx:id="topcardimage1" fitHeight="79.0" fitWidth="56.0" layoutX="436.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../cards/back2.jpeg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="exit" fitHeight="53.0" fitWidth="56.0" layoutX="783.0" layoutY="12.0" onMouseClicked="#toLobby" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@close1.jpg" />
                      </image>
                   </ImageView>
                </children>

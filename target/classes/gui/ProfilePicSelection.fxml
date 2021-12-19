@@ -7,51 +7,51 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="335.0" prefWidth="663.0" text="Select Profile Picture" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.LoginController">
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="335.0" prefWidth="663.0" text="Select Profile Picture" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ProfilePicSelectionController">
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="266.0" prefWidth="598.0">
          <children>
-            <ImageView fx:id="pic1" fitHeight="81.0" fitWidth="81.0" layoutX="120.0" layoutY="47.0" onMouseClicked="#selectProfilePic">
+            <ImageView fx:id="pic1" fitHeight="80.0" fitWidth="80.0" layoutX="130.0" layoutY="47.0" onMouseClicked="#selectProfilePic">
                <image>
                   <Image url="@1.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="pic3" fitHeight="84.0" fitWidth="81.0" layoutX="331.0" layoutY="46.0" onMouseClicked="#selectProfilePic">
+            <ImageView fx:id="pic3" fitHeight="80.0" fitWidth="80.0" layoutX="339.0" layoutY="46.0" onMouseClicked="#selectProfilePic">
                <image>
                   <Image url="@3.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="pic2" fitHeight="83.0" fitWidth="81.0" layoutX="225.0" layoutY="46.0" onMouseClicked="#selectProfilePic">
+            <ImageView fx:id="pic2" fitHeight="80.0" fitWidth="80.0" layoutX="235.0" layoutY="46.0" onMouseClicked="#selectProfilePic">
                <image>
                   <Image url="@2.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="pic4" fitHeight="84.0" fitWidth="83.0" layoutX="427.0" layoutY="46.0" onMouseClicked="#selectProfilePic">
+            <ImageView fx:id="pic4" fitHeight="80.0" fitWidth="80.0" layoutX="442.0" layoutY="46.0" onMouseClicked="#selectProfilePic">
                <image>
                   <Image url="@4.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="pic5" fitHeight="77.0" fitWidth="79.0" layoutX="121.0" layoutY="147.0" onMouseClicked="#selectProfilePic">
+            <ImageView fx:id="pic5" fitHeight="80.0" fitWidth="80.0" layoutX="131.0" layoutY="145.0" onMouseClicked="#selectProfilePic">
                <image>
                   <Image url="@5.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="pic6" fitHeight="78.0" fitWidth="79.0" layoutX="226.0" layoutY="146.0" onMouseClicked="#selectProfilePic">
+            <ImageView fx:id="pic6" fitHeight="80.0" fitWidth="80.0" layoutX="236.0" layoutY="144.0" onMouseClicked="#selectProfilePic">
                <image>
                   <Image url="@6.png" />
                </image>
             </ImageView>
-            <Label layoutX="54.0" layoutY="229.0" text="Select one of the pictures for your profile!" textFill="#3620d9">
+            <Label alignment="CENTER" layoutX="-5.0" layoutY="229.0" prefHeight="40.0" prefWidth="669.0" text="Select one of the pictures for your profile!" textFill="#3620d9">
                <font>
                   <Font name="System Bold" size="28.0" />
                </font>
             </Label>
-            <ImageView fx:id="pic7" fitHeight="82.0" fitWidth="81.0" layoutX="331.0" layoutY="144.0" onMouseClicked="#selectProfilePic">
+            <ImageView fx:id="pic7" fitHeight="80.0" fitWidth="80.0" layoutX="339.0" layoutY="144.0" onMouseClicked="#selectProfilePic">
                <image>
                   <Image url="@7.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="pic8" fitHeight="82.0" fitWidth="81.0" layoutX="428.0" layoutY="145.0" onMouseClicked="#selectProfilePic">
+            <ImageView fx:id="pic8" fitHeight="80.0" fitWidth="80.0" layoutX="443.0" layoutY="144.0" onMouseClicked="#selectProfilePic">
                <image>
                   <Image url="@8.png" />
                </image>

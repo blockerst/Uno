@@ -14,6 +14,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
@@ -66,6 +67,11 @@ public class ProfileController implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         selfprofilepic.setImage(LoginController.profilePic);
+        Circle clip = new Circle();
+        clip.setRadius(selfprofilepic.getFitHeight()/2);
+        clip.setCenterX(selfprofilepic.getFitWidth()/2);
+        clip.setCenterY(selfprofilepic.getFitHeight()/2);
+        selfprofilepic.setClip(clip);
         User u = LoginController.db.userPPage(LoginController.user);
         namelabel.setText(u.getUsername());
         joineddatelabel.setText(u.getDate());

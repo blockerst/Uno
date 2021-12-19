@@ -15,7 +15,7 @@
             <Image url="@profilebackground.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="selfprofilepic" fitHeight="97.0" fitWidth="102.0" layoutX="88.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="selfprofilepic" fitHeight="100.0" fitWidth="100.0" layoutX="88.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@blank-profile-picture-973460_960_720.png" />
          </image></ImageView>

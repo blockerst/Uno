@@ -1,4 +1,5 @@
 package gui;
+import Database.Reward;
 import Database.User;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -12,10 +13,12 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.shape.Circle;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 public class CommonProfileController implements Initializable{
 
@@ -55,7 +58,7 @@ public class CommonProfileController implements Initializable{
     private Image p8 = new Image(getClass().getResourceAsStream("8.png"));
 
     @FXML
-    public void removeFriend(ActionEvent e) throws IOException{
+    public void removeFriends(ActionEvent e) throws IOException{
         String userName = namelabel.getText();
         boolean state = LoginController.db.removeFriend(LoginController.user,new User(userName));
         stage = (Stage) remove.getScene().getWindow();
@@ -66,12 +69,34 @@ public class CommonProfileController implements Initializable{
     public void initialize(URL url, ResourceBundle resourceBundle) {
         User u = LoginController.db.userPPage(new User(LobbyController.friendname));
         profilepic.setImage(checkProfilePic(u.getImageId()));
+        Circle clip = new Circle();
+        clip.setRadius(profilepic.getFitHeight()/2);
+        clip.setCenterX(profilepic.getFitWidth()/2);
+        clip.setCenterY(profilepic.getFitHeight()/2);
+        profilepic.setClip(clip);
         namelabel.setText(u.getUsername());
         joineddatelabel.setText(u.getDate());
         ranklabel.setText(String.valueOf(u.getRank()));
         point.setText(String.valueOf(u.getPoint()));
         games.setText(String.valueOf(u.getPoint()));
         win.setText(String.valueOf(u.getNOWin()));
+        namelabel.setText(u.getUsername());
+        joineddatelabel.setText(u.getDate());
+        ranklabel.setText(String.valueOf(u.getRank()));
+        point.setText(String.valueOf(u.getPoint()));
+        games.setText(String.valueOf(u.getPoint()));
+        win.setText(String.valueOf(u.getNOWin()));
+        ArrayList<Reward> rewards = LoginController.db.getRewards(u);
+        int x = 0;
+        for(int i = 0; i < rewards.size(); i++){
+            ImageView iw = new ImageView();
+            iw.setFitHeight(108);
+            iw.setFitWidth(78);
+            iw.setImage(new Image("file:C:\\Users\\Asus\\Desktop\\UNO\\src\\main\\resources\\cards\\"+ rewards.get(i).getName()+".png"));
+            iw.setLayoutX(x);
+            anchorpane.getChildren().add(iw);
+            x += 88;
+        }
     }
     public Image checkProfilePic(int id){
         System.out.println("x");

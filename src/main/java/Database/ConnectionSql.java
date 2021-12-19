@@ -131,18 +131,6 @@ public class ConnectionSql
             return -2;
         }
     }
-    public boolean removeFriend(User user, User friend)
-    {
-        try {
-            st.executeUpdate("Delete From Friends where (username1 = '"+ friend.getUsername() +"' AND " +
-                    "username2 = '" + user.getUsername() + "') OR (username2 = '"+ friend.getUsername() + "' AND username1 = '" +
-                    user.getUsername()+"')");
-            return true;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
 
     /**
      * add reward to table
