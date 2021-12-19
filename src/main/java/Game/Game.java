@@ -39,7 +39,7 @@ public class Game {
 
     public void distribute(){
         for( int i = 0; i < players.size(); i++ ){
-            for(int j = 0; j < 7; j++){
+            for(int j = 0; j < 10; j++){
                 players.get(i).addCard(topCard);
                 topCard = deck.getTopCard();
             }
@@ -72,39 +72,71 @@ public class Game {
         return playerNo;
     }
 
-    public void botPlay(int index){
-        if( index > 0) {//index 0 is real player
-            if(clockwise){
-                if(index == players.size()-1 && isUno(0)){
-                    if( hasPlus(index) ){
-                        //play(index, players.get(index).getHand().get(indexPlusOrSkip(index)));
-                    }
-                }
-            }
-        }
+    public boolean botPlay(int index){
+        if( getPlayer(playerNo).getHand().get(index).getNumber() == 14 ||
+            getPlayer(playerNo).getHand().get(index).getNumber() == 13)
+        { botChooseColor(getPlayer(playerNo).getHand().get(index)); }
+        return play(index);
     }
 
+    public int botChooseCard(){
+        if (isUno(nextPlayer())){
+            if (hasPlus(playerNo) || hasSkip(playerNo)){
+                return indexPlusOrSkip(playerNo);
+            }
+        }
+        else{
+            int i = 0;
+            for( Card c: players.get(playerNo).getHand()){
+                if( topCard.isPlayable(c) ){ return i;}
+                i++;
+            }
+        }
+        return -1;
+    }
 
-    public boolean play(int player,int index){
-        if( this.playerNo == player){
-            Card temp = players.get(player).getHand().get(index);
-            if( topCard.isPlayable(temp)) {
-                if( players.get(player).checkUno() ){ isOver = true; return true;}
+    public int nextPlayer(){
+        int next = playerNo;
+        if(clockwise){
+            next ++;
+            if(next > players.size()-1){
+                next = 0;
+            }
+
+        }
+        else {
+            next --;
+            if(next < 0){
+                next += players.size();
+            }
+        }
+        return next;
+    }
+
+    public void botChooseColor(Card c){
+        c.setColor(players.get(playerNo).getMostColor());
+    }
+
+    public boolean play(int index){
+        int player = playerNo;
+        Card temp = players.get(player).getHand().get(index);
+        if( topCard.isPlayable(temp)) {
+            if( players.get(player).checkUno() ){ isOver = true; return true;}
                 if( temp.getSpecial()) {
                     if (temp.getNumber() == 10) {
                         stackedPlus += 2;
                     }
                     if( temp.getNumber() == 12){
                         clockwise = !clockwise;
+                        if( players.size() == 2) increasePlayerNo();
                     }
                     if( temp.getNumber() == 13) {
-                        wildPlayed(temp);
+                        if( playerNo == 0) {wildPlayed(temp);}
                     }
                     if (temp.getNumber() == 14) {
                         stackedPlus += 4;
-                        wildPlayed(temp);
+                        if( playerNo == 0) {wildPlayed(temp);}
                     }
-
                 }
                 topCard = temp;
                 cardsOnTable.add(temp);
@@ -116,12 +148,11 @@ public class Game {
                     }
                 }
                 else {
-                    if(temp.getNumber() ==11) increasePlayerNo();
+                    if(temp.getNumber() == 11) increasePlayerNo();
                 }
-                return true;
-            }
+            return true;
         }
-        return false;
+    return false;
     }
 
     public void draw(){
@@ -159,10 +190,19 @@ public class Game {
 
     public boolean hasPlus(int playerNo){
         for( Card c  : players.get(playerNo).getHand() ){
-            if(c.getNumber() == 14 || c.getNumber() == 11){ //if user has +4
+            if(c.getNumber() == 14 ){
                 return true;
             }
-            else if(c.getNumber() == 10 ){//if user has approproite +2
+            else if(c.getNumber() == 10 && topCard.isPlayable(c)){//if user has approproite +2
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean hasSkip(int playerNo){
+        for( Card c : players.get(playerNo).getHand()){
+            if(c.getNumber() == 11){
                 return true;
             }
         }
@@ -192,6 +232,7 @@ public class Game {
             wildPlayed(c);
         }
     }
+
     public int indexPlusOrSkip(int playerNo){
         for( int i = 0; i < players.get(playerNo).getHand().size(); i++){
             if( players.get(playerNo).getHand().get(i).getNumber() == 10 ||
@@ -206,6 +247,4 @@ public class Game {
         }
         return -1;
     }
-
-
 }

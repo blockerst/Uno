@@ -26,7 +26,7 @@ public class Card {
     public void setSpecialColor(String color){ this.color = color; }
     public void setImageID( String ID){ this.imageID = ID; }
 
-    public boolean isPlayable(Card card){
+    public boolean isPlayable(Card card){//card is being played
         if( this.color == card.getColor()){ return true; }
         if( this.number < 13 && this.number == card.getNumber()){ return true; }
         if( (card.number == 13 || card.number == 14)){ return true; }
