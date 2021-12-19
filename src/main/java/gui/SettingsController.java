@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class SettingsController{
+public class SettingsController implements Initializable{
 
     @FXML
     private Button logout;
@@ -65,6 +65,15 @@ public class SettingsController{
         stage.show();
     }
     @FXML
+    public void setDarkMode(ActionEvent e) throws IOException{
+        if(darkmodethemecheckbox.isSelected()){
+            LoginController.db.setDarkThemeDB(LoginController.user,true);
+        }
+        else{
+            LoginController.db.setDarkThemeDB(LoginController.user,false);
+        }
+    }
+    @FXML
     public void seeFriendReq(ActionEvent e) throws IOException{
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("FriendshipRequest.fxml"));
@@ -98,6 +107,16 @@ public class SettingsController{
             changenamlabel.setText("Username changed!");
             changenamlabel.setVisible(true);
             LoginController.user.setUsername(nam);
+        }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        if(LoginController.db.getDarkThemeDB(LoginController.user)){
+            darkmodethemecheckbox.setSelected(true);
+        }
+        else{
+            darkmodethemecheckbox.setSelected(false);
         }
     }
 }

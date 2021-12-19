@@ -61,6 +61,11 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="122.0" prefWidth="215.0">
                <children>
+                  <ImageView fitHeight="131.0" fitWidth="222.0" layoutX="-3.0" layoutY="-3.0">
+                     <image>
+                        <Image url="@profilebackground.jpg" />
+                     </image>
+                  </ImageView>
                   <Label fx:id="usernam" alignment="CENTER" layoutY="90.0" prefHeight="18.0" prefWidth="216.0" text="Username" />
                   <ImageView fx:id="profilepic" fitHeight="70.0" fitWidth="70.0" layoutX="72.0" layoutY="15.0" onMouseClicked="#toSelfProfile" pickOnBounds="true" preserveRatio="true">
                      <image>

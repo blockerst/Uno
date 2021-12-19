@@ -56,23 +56,19 @@
                                 <Image url="@istockphoto-187555577-612x612.jpg" />
                             </image>
                         </ImageView>
-                        <ScrollPane layoutX="51.0" layoutY="97.0" prefHeight="366.0" prefWidth="652.0">
-                            <content>
-                        <AnchorPane prefHeight="366.0" prefWidth="619.0">
-                           <children>
-                                      <TableView fx:id="leaderboard" prefHeight="366.0" prefWidth="635.0">
-                                          <columns>
-                                              <TableColumn fx:id="rank" prefWidth="98.0" text="Rank" />
-                                              <TableColumn fx:id="plyrnam" prefWidth="192.0" text="Player Name" />
-                                              <TableColumn fx:id="plyrgamenum" prefWidth="140.800048828125" text="Played Game Number" />
-                                              <TableColumn fx:id="gameswon" prefWidth="112.80007934570312" text="Games Won" />
-                                              <TableColumn fx:id="point" minWidth="0.0" prefWidth="88.79997558593755" text="Point" />
-                                          </columns>
-                                      </TableView>
-                           </children>
-                        </AnchorPane>
-                            </content>
-                        </ScrollPane>
+                  <AnchorPane layoutX="51.0" layoutY="97.0" prefHeight="366.0" prefWidth="619.0">
+                     <children>
+                                <TableView fx:id="leaderboard" prefHeight="366.0" prefWidth="635.0">
+                                    <columns>
+                                        <TableColumn fx:id="rank" prefWidth="98.0" text="Rank" />
+                                        <TableColumn fx:id="plyrnam" prefWidth="192.0" text="Player Name" />
+                                        <TableColumn fx:id="plyrgamenum" prefWidth="140.800048828125" text="Played Game Number" />
+                                        <TableColumn fx:id="gameswon" prefWidth="112.80007934570312" text="Games Won" />
+                                        <TableColumn fx:id="point" minWidth="0.0" prefWidth="88.79997558593755" text="Point" />
+                                    </columns>
+                                </TableView>
+                     </children>
+                  </AnchorPane>
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="195.0" layoutY="35.0" prefHeight="62.0" prefWidth="364.0" text="Leaderboard" textAlignment="CENTER" textFill="RED">
                             <font>
                                 <Font name="System Bold" size="40.0" />
@@ -87,6 +83,11 @@
                             <items>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                     <children>
+                              <ImageView fitHeight="106.0" fitWidth="246.0" layoutY="-2.0">
+                                 <image>
+                                    <Image url="@profilebackground.jpg" />
+                                 </image>
+                              </ImageView>
                                         <Label fx:id="usernam" alignment="CENTER" layoutX="23.0" layoutY="69.0" prefHeight="18.0" prefWidth="209.0" text="Göktuğ" />
                                         <ImageView fx:id="ldrbrdprofile" fitHeight="60.0" fitWidth="60.0" layoutX="98.0" layoutY="9.0" onMouseClicked="#toSelfProfile" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -105,11 +106,11 @@
                                             <items>
                                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="501.0" prefWidth="230.0">
                                                     <children>
-                                                        <ScrollPane layoutX="7.0" prefHeight="439.0" prefWidth="245.0">
+                                                        <ScrollPane layoutX="7.0" prefHeight="439.0" prefWidth="237.0">
                                                             <content>
-                                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="439.0" prefWidth="224.0">
+                                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="438.0" prefWidth="220.0">
                                                    <children>
-                                                      <SplitPane fx:id="split" dividerPositions="0.6032786885245902" prefHeight="439.0" prefWidth="245.0">
+                                                      <SplitPane fx:id="split" dividerPositions="0.5622950819672131" prefHeight="439.0" prefWidth="245.0">
                                                         <items>
                                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                                                                <children>

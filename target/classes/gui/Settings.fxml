@@ -22,7 +22,7 @@
             <Font name="System Bold" size="37.0" />
          </font>
       </Label>
-      <CheckBox fx:id="darktehemecheckbox" layoutX="96.0" layoutY="91.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="149.0" text="Dark Theme" textFill="#faf6f6">
+      <CheckBox fx:id="darkmodethemecheckbox" layoutX="96.0" layoutY="91.0" mnemonicParsing="false" onAction="#setDarkMode" prefHeight="26.0" prefWidth="149.0" text="Dark Theme" textFill="#faf6f6">
          <font>
             <Font name="System Bold" size="17.0" />
          </font></CheckBox>

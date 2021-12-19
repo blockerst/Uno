@@ -22,6 +22,7 @@ public class GuiStage extends Application {
         stage.setScene(scene);
         Image icon = new Image(getClass().getResourceAsStream("logo.png"));
         stage.getIcons().add(icon);
+        stage.setResizable(false);
         stage.show();
     }
 }
