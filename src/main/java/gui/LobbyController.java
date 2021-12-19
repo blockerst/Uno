@@ -61,7 +61,7 @@ public class LobbyController implements Initializable {
     @FXML
     private ListView friendonlinelistview;
     @FXML
-    private SplitPane split;
+    private SplitPane splitLobby;
     @FXML
     private Label usernam;
 
@@ -178,6 +178,7 @@ public class LobbyController implements Initializable {
         clip2.setCenterX(settings.getFitHeight()/2);
         clip2.setCenterY(settings.getFitHeight()/2);
         settings.setClip(clip2);
+
         ArrayList<User> list = LoginController.db.getFriends(LoginController.user);
         for(int i = 0; i < list.size(); i++){
             Label isOnline = new Label("");
@@ -190,7 +191,8 @@ public class LobbyController implements Initializable {
             }
             friendonlinelistview.getItems().add(i,isOnline);
         }
-        split.setStyle("-fx-box-border: transparent;");
+        friendonlinelistview.setStyle("-fx-background-color: transparent");
+        friendonlinelistview.setMouseTransparent(false);
         friendlistview.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent e) {

@@ -61,11 +61,6 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="122.0" prefWidth="215.0">
                <children>
-                  <ImageView fitHeight="131.0" fitWidth="222.0" layoutX="-3.0" layoutY="-3.0">
-                     <image>
-                        <Image url="@profilebackground.jpg" />
-                     </image>
-                  </ImageView>
                   <Label fx:id="usernam" alignment="CENTER" layoutY="90.0" prefHeight="18.0" prefWidth="216.0" text="Username" />
                   <ImageView fx:id="profilepic" fitHeight="70.0" fitWidth="70.0" layoutX="72.0" layoutY="15.0" onMouseClicked="#toSelfProfile" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -80,20 +75,24 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <ScrollPane prefHeight="291.0" prefWidth="235.0">
+                  <ScrollPane prefHeight="290.0" prefWidth="210.0">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="478.0" prefWidth="217.0">
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="292.0" prefWidth="193.0">
                            <children>
-                            <AnchorPane layoutX="1.0" minHeight="0.0" minWidth="0.0" prefHeight="448.0" prefWidth="130.0">
-                                 <children>
-                                    <ListView fx:id="friendlistview" layoutX="-2.0" layoutY="-1.0" prefHeight="495.0" prefWidth="137.0" />
-                                 </children>
-                              </AnchorPane>
-                            <AnchorPane layoutX="134.0" layoutY="2.0" minHeight="0.0" minWidth="0.0" prefHeight="495.0" prefWidth="59.0">
-                                 <children>
-                                    <ListView fx:id="friendonlinelistview" layoutX="-3.0" layoutY="-3.0" prefHeight="498.0" prefWidth="135.0" />
-                                 </children>
-                              </AnchorPane>
+                              <SplitPane fx:id="split" dividerPositions="0.569214876033058" layoutX="1.0" prefHeight="290.0" prefWidth="195.0">
+                                <items>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                       <children>
+                                          <ListView fx:id="friendlistview" prefHeight="290.0" prefWidth="108.0" />
+                                       </children>
+                                    </AnchorPane>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                       <children>
+                                          <ListView fx:id="friendonlinelistview" layoutX="-1.0" prefHeight="290.0" prefWidth="82.0" />
+                                       </children>
+                                    </AnchorPane>
+                                </items>
+                              </SplitPane>
                            </children></AnchorPane>
                     </content>
                   </ScrollPane>

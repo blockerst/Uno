@@ -61,10 +61,10 @@
                                 <TableView fx:id="leaderboard" prefHeight="366.0" prefWidth="635.0">
                                     <columns>
                                         <TableColumn fx:id="rank" prefWidth="98.0" text="Rank" />
-                                        <TableColumn fx:id="plyrnam" prefWidth="192.0" text="Player Name" />
-                                        <TableColumn fx:id="plyrgamenum" prefWidth="140.800048828125" text="Played Game Number" />
+                                        <TableColumn fx:id="plyrnam" prefWidth="182.0" text="Player Name" />
+                                        <TableColumn fx:id="plyrgamenum" prefWidth="151.0" text="Played Game Number" />
                                         <TableColumn fx:id="gameswon" prefWidth="112.80007934570312" text="Games Won" />
-                                        <TableColumn fx:id="point" minWidth="0.0" prefWidth="88.79997558593755" text="Point" />
+                                        <TableColumn fx:id="point" minWidth="0.0" prefWidth="75.0" text="Point" />
                                     </columns>
                                 </TableView>
                      </children>
@@ -110,20 +110,8 @@
                                                             <content>
                                                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="438.0" prefWidth="220.0">
                                                    <children>
-                                                      <SplitPane fx:id="split" dividerPositions="0.5622950819672131" prefHeight="439.0" prefWidth="245.0">
-                                                        <items>
-                                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                                                               <children>
-                                                                  <ListView fx:id="friendlistview" prefHeight="439.0" prefWidth="145.0" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                                                               <children>
-                                                                  <ListView fx:id="friendonlinelistview" layoutX="-1.0" layoutY="-1.0" prefHeight="439.0" prefWidth="94.0" />
-                                                               </children>
-                                                            </AnchorPane>
-                                                        </items>
-                                                      </SplitPane>
+                                                      <ListView fx:id="friendlistview" layoutX="1.0" layoutY="1.0" prefHeight="566.0" prefWidth="136.0" />
+                                                      <ListView fx:id="friendonlinelistview" layoutX="134.0" layoutY="1.0" prefHeight="540.0" prefWidth="83.0" />
                                                    </children></AnchorPane>
                                                             </content>
                                                         </ScrollPane>

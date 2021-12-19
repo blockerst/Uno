@@ -163,7 +163,9 @@ public class LeaderboardController implements Initializable {
         //here you add the friends from an array from the database
         ObservableList<Competitor> lista = FXCollections.observableArrayList();
         ArrayList<User> users = LoginController.db.getTop100();
+        friendonlinelistview.setMouseTransparent( true );
 
+        friendonlinelistview.setStyle("-fx-background-color: transparent");
         for(int i = 0; i < users.size(); i++){
             User u = users.get(i);
             lista.add(i,new Competitor(new SimpleIntegerProperty(u.getRank()),new SimpleStringProperty(u.getUsername()),new SimpleIntegerProperty(u.getNOGame()),new SimpleIntegerProperty(u.getNOWin()),new SimpleIntegerProperty(u.getPoint())));
@@ -180,7 +182,7 @@ public class LeaderboardController implements Initializable {
                 isOnline.setStyle("-fx-text-fill: red");
             }
             friendonlinelistview.getItems().add(i,isOnline);
-            split.setStyle("-fx-box-border: transparent;");
+
             friendlistview.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent e) {
