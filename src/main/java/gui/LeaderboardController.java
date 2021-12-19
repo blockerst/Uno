@@ -156,10 +156,20 @@ public class LeaderboardController implements Initializable {
         ledrbrdsettings.setClip(clip2);
         leaderboard.setSelectionModel(null);
         rank.setCellValueFactory(new PropertyValueFactory<>("rank"));
+        rank.setResizable(false);
+        rank.setReorderable(false);
         plyrnam.setCellValueFactory(new PropertyValueFactory<>("name"));
+        plyrnam.setResizable(false);
+        plyrnam.setReorderable(false);
         plyrgamenum.setCellValueFactory(new PropertyValueFactory<>("playedGameNum"));
+        plyrgamenum.setResizable(false);
+        plyrgamenum.setReorderable(false);
         gameswon.setCellValueFactory(new PropertyValueFactory<>("gamesWon"));
+        gameswon.setResizable(false);
+        gameswon.setReorderable(false);
         point.setCellValueFactory(new PropertyValueFactory<>("point"));
+        point.setResizable(false);
+        point.setReorderable(false);
         //here you add the friends from an array from the database
         ObservableList<Competitor> lista = FXCollections.observableArrayList();
         ArrayList<User> users = LoginController.db.getTop100();

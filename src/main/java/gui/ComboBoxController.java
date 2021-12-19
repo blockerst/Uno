@@ -38,6 +38,7 @@ public class ComboBoxController implements Initializable {
         stage = LoginController.getLobbyStage();
         scene = new Scene(root);
         stage.setScene(scene);
+        stage.setFullScreen(true);
         stage.show();
     }
 
