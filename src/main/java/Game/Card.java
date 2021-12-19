@@ -1,12 +1,14 @@
 package Game;
 
+import java.util.Scanner;
+
 public class Card {
     private String color;
     private int number;
     private boolean special;
-    private int imageID;
+    private String imageID;
 
-    public Card(String color, int value, boolean isSpecial, int ID){
+    public Card(String color, int value, boolean isSpecial, String ID){
         this.color = color;
         number = value;
         special = isSpecial;
@@ -16,12 +18,13 @@ public class Card {
     public String getColor(){ return color; }
     public int getNumber(){ return number; }
     public boolean getSpecial(){ return special; }
-    public int getImageID(){ return imageID; }
+    public String getImageID(){ return imageID; }
     //setters
     public void setColor(String color){this.color = color; }
     public void setNumber(int value){number = value; }
     public void setSpecial( boolean special ){ this.special = special; }
     public void setSpecialColor(String color){ this.color = color; }
+    public void setImageID( String ID){ this.imageID = ID; }
 
     public boolean isPlayable(Card card){
         if( this.color == card.getColor()){ return true; }
@@ -29,6 +32,8 @@ public class Card {
         if( (card.number == 13 || card.number == 14)){ return true; }
         return false;
     }
+
+
 
     public String toString(){
         String out = "";

@@ -5,6 +5,8 @@ package Game; /**
  * @author 
  * @version 1.00 2021/10/20
  */
+import Database.ConnectionSql;
+
 import java.lang.Math;
 import java.util.ArrayList;
 public class Deck {
@@ -16,10 +18,27 @@ public class Deck {
     		shuffle();
     	}
     }
+	//getters
+	public void getID(){
+    	for( Card c: deck){
+    		System.out.println(c.getImageID() + " " + c.getSpecial());
+		}
+	}
 
+	public Card getTopCard(){
+		Card temp = deck.get(0);
+		deck.remove(0);
+		return temp;
+	}
+
+	//Methods
     public void initialize(){
 		String color = "";
 		boolean isSpecial;
+		String ID = "";
+		//ConnectionSql db = ConnectionSql.getInstance().getDa
+		//getDark;
+		//if( getDark ){ ID = Dark;}
 
     	for(int i = 0; i < 4; i++){
     		if( i == 0){ color = "Yellow";}
@@ -29,17 +48,24 @@ public class Deck {
     		for( int j = 0; j <= 14; j++) {
 				if( j < 10 ){
 					isSpecial = false;
-					Card card = new Card(color, j, isSpecial, 0);
+					ID += color+j;
+					Card card = new Card(color, j, isSpecial, "@../cards/" + ID +".png");
 					deck.add(card);
 					if(j != 0){ deck.add(card); }
 				}
 				else {
 					isSpecial = true;
-					Card card = new Card(color, j, isSpecial, 0);
+
+					if( j < 13){ ID += color;}
+					if( j == 10){ ID += "+2";}
+					if( j == 11){ ID += "Ban";}
+					if( j == 12){ ID += "Reverse";}
+					if( j == 13){ ID = "color";}
+					if( j == 14){ ID = "+4";}
+					Card card = new Card(color, j, isSpecial, "@../cards/" + ID + ".png");
 					if( j < 13){ deck.add(card); }
 					deck.add(card);
 				}
-
 			}
     	}
     }
@@ -56,16 +82,6 @@ public class Deck {
     		deck.add(random2,c);
     	}
     }
-
-    public Card topCard(){
-    	return topCard();
-	}
-
-    public Card getTopCard(){
-    	Card temp = deck.get(0);
-    	deck.remove(0);
-    	return temp;
-	}
 
     public String toString(){
     	String s = "";
