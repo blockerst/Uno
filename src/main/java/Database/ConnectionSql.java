@@ -131,18 +131,7 @@ public class ConnectionSql
             return -2;
         }
     }
-    public boolean removeFriend(User user, User friend)
-    {
-        try {
-            st.executeUpdate("Delete From Friends where (username1 = '"+ friend.getUsername() +"' AND " +
-                    "username2 = '" + user.getUsername() + "') OR (username2 = '"+ friend.getUsername() + "' AND username1 = '" +
-                    user.getUsername()+"')");
-            return true;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
+
 
     /**
      * add reward to table
@@ -578,6 +567,34 @@ public class ConnectionSql
                     "username2 = '" + user.getUsername() + "') OR (username2 = '"+ friend.getUsername() + "' AND username1 = '" +
                     user.getUsername()+"')");
             return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    public boolean setDarkThemeDB(User user, boolean isDarkTheme)
+    {
+        int darkTheme = 0;
+        if(isDarkTheme) darkTheme =1;
+        try {
+            st.executeUpdate("Update Users SET DarkTheme = " + darkTheme +" where username = '" + user.getUsername()
+                    + "';");
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean getDarkThemeDB(User user)
+    {
+        try {
+            ResultSet rs = st.executeQuery("Select DarkTheme from Users where username = '" + user.getUsername() +
+                                 "';");
+            rs.next();
+            int darkTheme = rs.getInt("DarkTheme");
+            if(darkTheme == 1) return true;
+            return false;
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
