@@ -163,7 +163,6 @@ public class LobbyController implements Initializable {
         stage.show();
     }
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         usernam.setText(LoginController.user.getUsername());
@@ -175,7 +174,6 @@ public class LobbyController implements Initializable {
             isOnline.setText("Online");
             isOnline.setStyle("-fx-text-fill: green");
             if(list.get(i).getIsOnline() == 0){
-                System.out.println("asdaaaa");
                 isOnline.setText("Offline");
                 isOnline.setStyle("-fx-text-fill: red");
             }

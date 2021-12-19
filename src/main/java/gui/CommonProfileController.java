@@ -12,6 +12,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
@@ -37,9 +38,7 @@ public class CommonProfileController implements Initializable{
     @FXML
     private Label win;
     @FXML
-    private Button sendreq;
-    @FXML
-    private Label sentreq;
+    private Button remove;
 
     private final Image icon = new Image(getClass().getResourceAsStream("logo.png"));
     private ObservableList list;
@@ -54,6 +53,15 @@ public class CommonProfileController implements Initializable{
     private Image p6 = new Image(getClass().getResourceAsStream("6.png"));
     private Image p7 = new Image(getClass().getResourceAsStream("7.png"));
     private Image p8 = new Image(getClass().getResourceAsStream("8.png"));
+
+    @FXML
+    public void removeFriend(ActionEvent e) throws IOException{
+        String userName = namelabel.getText();
+        boolean state = LoginController.db.removeFriend(LoginController.user,new User(userName));
+        stage = (Stage) remove.getScene().getWindow();
+        stage.close();
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         User u = LoginController.db.userPPage(new User(LobbyController.friendname));

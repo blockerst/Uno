@@ -145,6 +145,7 @@ public class LeaderboardController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         usernam.setText(LoginController.user.getUsername());
         ldrbrdprofile.setImage(LoginController.profilePic);
+        leaderboard.setSelectionModel(null);
         rank.setCellValueFactory(new PropertyValueFactory<>("rank"));
         plyrnam.setCellValueFactory(new PropertyValueFactory<>("name"));
         plyrgamenum.setCellValueFactory(new PropertyValueFactory<>("playedGameNum"));
