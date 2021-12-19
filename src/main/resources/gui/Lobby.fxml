@@ -62,13 +62,13 @@
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="122.0" prefWidth="215.0">
                <children>
                   <Label fx:id="usernam" alignment="CENTER" layoutY="90.0" prefHeight="18.0" prefWidth="216.0" text="Username" />
-                  <ImageView fx:id="profilepic" fitHeight="62.0" fitWidth="71.0" layoutX="79.0" layoutY="19.0" onMouseClicked="#toSelfProfile" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="profilepic" fitHeight="70.0" fitWidth="70.0" layoutX="72.0" layoutY="15.0" onMouseClicked="#toSelfProfile" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@blank-profile-picture-973460_960_720.png" />
                      </image></ImageView>
-                  <ImageView fx:id="settings" fitHeight="36.0" fitWidth="41.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#toSettings" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="settings" fitHeight="30.0" fitWidth="30.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#toSettings" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@images.png" />
+                        <Image url="@5b64d8e20a5d9fbe5e6da21ba76d3a84c9182efad5fa3fc4c2ea1d81eef33964_200.jpg" />
                      </image>
                   </ImageView>
                </children>

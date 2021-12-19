@@ -15,6 +15,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.Circle;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -167,6 +168,16 @@ public class LobbyController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         usernam.setText(LoginController.user.getUsername());
         profilepic.setImage(LoginController.profilePic);
+        Circle clip = new Circle();
+        clip.setRadius(profilepic.getFitHeight()/2);
+        clip.setCenterX(profilepic.getFitWidth()/2);
+        clip.setCenterY(profilepic.getFitHeight()/2);
+        profilepic.setClip(clip);
+        Circle clip2 = new Circle();
+        clip2.setRadius(settings.getFitHeight()/2);
+        clip2.setCenterX(settings.getFitHeight()/2);
+        clip2.setCenterY(settings.getFitHeight()/2);
+        settings.setClip(clip2);
         ArrayList<User> list = LoginController.db.getFriends(LoginController.user);
         for(int i = 0; i < list.size(); i++){
             Label isOnline = new Label("");

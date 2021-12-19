@@ -15,6 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
@@ -29,22 +30,6 @@ public class LoginController implements Initializable {
     private Button signin;
     @FXML
     private Button signup;
-    @FXML
-    private ImageView pic1;
-    @FXML
-    private ImageView pic2;
-    @FXML
-    private ImageView pic3;
-    @FXML
-    private ImageView pic4;
-    @FXML
-    private ImageView pic5;
-    @FXML
-    private ImageView pic6;
-    @FXML
-    private ImageView pic7;
-    @FXML
-    private ImageView pic8;
 
     private Stage stage;
     private Scene scene;
@@ -86,7 +71,6 @@ public class LoginController implements Initializable {
             stage.setScene(scene);
             stage.show();
         }
-        System.out.println(userName + userPass);
     }
     @FXML
     public void signIn(ActionEvent e) throws IOException {

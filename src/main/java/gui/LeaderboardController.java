@@ -18,6 +18,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.Circle;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -64,8 +65,6 @@ public class LeaderboardController implements Initializable {
     private Button tolobby;
     @FXML
     private ScrollPane selfprofilescrollAnchorPane;
-    @FXML
-    private ImageView profilepic;
     @FXML
     private ImageView selfprofilepic;
     @FXML
@@ -145,6 +144,16 @@ public class LeaderboardController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         usernam.setText(LoginController.user.getUsername());
         ldrbrdprofile.setImage(LoginController.profilePic);
+        Circle clip = new Circle();
+        clip.setRadius(ldrbrdprofile.getFitHeight()/2);
+        clip.setCenterX(ldrbrdprofile.getFitWidth()/2);
+        clip.setCenterY(ldrbrdprofile.getFitHeight()/2);
+        ldrbrdprofile.setClip(clip);
+        Circle clip2 = new Circle();
+        clip2.setRadius(ledrbrdsettings.getFitHeight()/2);
+        clip2.setCenterX(ledrbrdsettings.getFitHeight()/2);
+        clip2.setCenterY(ledrbrdsettings.getFitHeight()/2);
+        ledrbrdsettings.setClip(clip2);
         leaderboard.setSelectionModel(null);
         rank.setCellValueFactory(new PropertyValueFactory<>("rank"));
         plyrnam.setCellValueFactory(new PropertyValueFactory<>("name"));

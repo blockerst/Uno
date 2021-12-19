@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.shape.Ellipse?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="847.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GameController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="847.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TutorialController">
    <children>
       <SplitPane dividerPositions="0.18917112299465239" prefHeight="510.0" prefWidth="847.0">
         <items>
@@ -42,7 +41,11 @@
                   <Label alignment="CENTER" layoutX="299.0" layoutY="411.0" prefHeight="26.0" prefWidth="84.0" text="Username" />
                   <Label alignment="CENTER" layoutX="305.0" layoutY="444.0" prefHeight="26.0" prefWidth="71.0" text="Timer" />
                   <Button layoutX="439.0" layoutY="425.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="71.0" text="UNO!" />
-                  <Button fx:id="exittutorial" layoutX="619.0" layoutY="21.0" mnemonicParsing="false" onAction="#toLobby" prefHeight="37.0" prefWidth="40.0" style="-fx-background-radius: 200;" text="Exit" />
+                  <ImageView fx:id="exit" fitHeight="50.0" fitWidth="50.0" layoutX="618.0" layoutY="15.0" onMouseClicked="#toLobby" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@close1.jpg" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
         </items>

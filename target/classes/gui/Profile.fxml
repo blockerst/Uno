@@ -15,13 +15,13 @@
             <Image url="@profilebackground.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="profilepic" fitHeight="97.0" fitWidth="102.0" layoutX="88.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="profilepic" fitHeight="100.0" fitWidth="100.0" layoutX="88.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@blank-profile-picture-973460_960_720.png" />
          </image></ImageView>
       <Label fx:id="namelabel" alignment="CENTER" layoutX="182.0" layoutY="106.0" prefHeight="38.0" prefWidth="122.0" text="Username">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="18.0" />
          </font></Label>
       <Label alignment="TOP_LEFT" layoutX="358.0" layoutY="76.0" prefHeight="18.0" prefWidth="78.0" text="Date Joined: " />
       <Label fx:id="joineddatelabel" layoutX="448.0" layoutY="76.0" prefHeight="18.0" prefWidth="86.0" text="Date" />
@@ -51,7 +51,7 @@
       <Label fx:id="point" layoutX="446.0" layoutY="136.0" text="point" />
       <Label layoutX="358.0" layoutY="116.0" prefHeight="18.0" prefWidth="78.0" text="Games Won:" />
       <Label fx:id="win" layoutX="448.0" layoutY="116.0" prefHeight="18.0" prefWidth="37.0" text="win" />
-      <Button fx:id="remove" layoutX="196.0" layoutY="140.0" mnemonicParsing="false" onAction="#removeFriend" prefHeight="26.0" prefWidth="102.0" text="Remove Friend" textFill="#e41212">
+      <Button fx:id="remove" layoutX="196.0" layoutY="140.0" mnemonicParsing="false" onAction="#removeFriends" prefHeight="26.0" prefWidth="102.0" text="Remove Friend" textFill="#e41212">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

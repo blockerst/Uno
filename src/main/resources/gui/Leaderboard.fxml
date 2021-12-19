@@ -87,14 +87,14 @@
                             <items>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                     <children>
-                                        <Label fx:id="usernam" alignment="CENTER" layoutX="23.0" layoutY="66.0" prefHeight="18.0" prefWidth="209.0" text="Göktuğ" />
-                                        <ImageView fx:id="ldrbrdprofile" fitHeight="49.0" fitWidth="57.0" layoutX="103.0" layoutY="9.0" onMouseClicked="#toSelfProfile" pickOnBounds="true" preserveRatio="true">
+                                        <Label fx:id="usernam" alignment="CENTER" layoutX="23.0" layoutY="69.0" prefHeight="18.0" prefWidth="209.0" text="Göktuğ" />
+                                        <ImageView fx:id="ldrbrdprofile" fitHeight="60.0" fitWidth="60.0" layoutX="98.0" layoutY="9.0" onMouseClicked="#toSelfProfile" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@blank-profile-picture-973460_960_720.png" />
                                  </image></ImageView>
-                                        <ImageView fx:id="ledrbrdsettings" fitHeight="26.0" fitWidth="24.0" layoutX="11.0" layoutY="9.0" onMouseClicked="#toSettings" pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fx:id="ledrbrdsettings" fitHeight="30.0" fitWidth="30.0" layoutX="23.0" layoutY="14.0" onMouseClicked="#toSettings" pickOnBounds="true" preserveRatio="true" smooth="false">
                                             <image>
-                                                <Image url="@images.png" />
+                                                <Image url="@5b64d8e20a5d9fbe5e6da21ba76d3a84c9182efad5fa3fc4c2ea1d81eef33964_200.jpg" />
                                             </image>
                                         </ImageView>
                                     </children>
