@@ -3,14 +3,18 @@ package gui;
 import Database.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class AddFriendController {
+public class AddFriendController implements Initializable {
 
     @FXML
     private TextField friendField;
@@ -20,7 +24,7 @@ public class AddFriendController {
     private Label friendLabel;
 
     @FXML
-    public void sendFriendshipRequest(ActionEvent e) throws IOException {
+    public void sendFriendshipRequest(MouseEvent e) throws IOException {
         String userName = friendField.getText();
         int state = LoginController.db.addFriend(LoginController.user,new User(userName));
         if(state == 1){
@@ -41,5 +45,10 @@ public class AddFriendController {
         }
         friendLabel.setOpacity(1);
         friendLabel.setVisible(true);
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        friendField.setStyle("-fx-focus-color: transparent;");
     }
 }

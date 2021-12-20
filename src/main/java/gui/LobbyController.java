@@ -115,7 +115,7 @@ public class LobbyController implements Initializable {
     }
 
     @FXML
-    public void addFriend(ActionEvent e) throws IOException {
+    public void addFriend(MouseEvent e) throws IOException {
         root = FXMLLoader.load(getClass().getResource("Add_Friends.fxml"));
         stage = new Stage();
         stage.setTitle("Add Friend");
@@ -127,7 +127,7 @@ public class LobbyController implements Initializable {
     }
 
     @FXML
-    public void createGame(ActionEvent e) throws IOException {
+    public void createGame(MouseEvent e) throws IOException {
         root = FXMLLoader.load(getClass().getResource("BotNumSelection.fxml"));
         stage = new Stage();
         scene = new Scene(root);
@@ -147,7 +147,7 @@ public class LobbyController implements Initializable {
     }
 
     @FXML
-    public void toLeaderBoard(ActionEvent e) throws IOException {
+    public void toLeaderBoard(MouseEvent e) throws IOException {
         root = FXMLLoader.load(getClass().getResource("Leaderboard.fxml"));
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -156,7 +156,7 @@ public class LobbyController implements Initializable {
     }
 
     @FXML
-    public void toTutorialMode(ActionEvent e) throws IOException {
+    public void toTutorialMode(MouseEvent e) throws IOException {
         root = FXMLLoader.load(getClass().getResource("Tutorial.fxml"));
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -178,43 +178,56 @@ public class LobbyController implements Initializable {
         clip2.setCenterX(settings.getFitHeight()/2);
         clip2.setCenterY(settings.getFitHeight()/2);
         settings.setClip(clip2);
+        friendonlinelistview.setMouseTransparent(true);
+        friendlistview.setStyle("-fx-background-color: transparent");
+        friendlistview.setStyle("-fx-background-insets: 0 ;");
+        FriendView runnable = new FriendView();
+        runnable.start();
 
-        ArrayList<User> list = LoginController.db.getFriends(LoginController.user);
-        for(int i = 0; i < list.size(); i++){
-            Label isOnline = new Label("");
-            friendlistview.getItems().add(i,list.get(i).getUsername());
-            isOnline.setText("Online");
-            isOnline.setStyle("-fx-text-fill: green");
-            if(list.get(i).getIsOnline() == 0){
-                isOnline.setText("Offline");
-                isOnline.setStyle("-fx-text-fill: red");
+    }
+    private class FriendView extends Thread
+    {
+        @Override
+        public void run() {
+            ArrayList<User> list = LoginController.db.getFriends(LoginController.user);
+            for(int i = 0; i < list.size(); i++){
+                Label isOnline = new Label("");
+                friendlistview.getItems().add(i,list.get(i).getUsername());
+                isOnline.setText("Online");
+                isOnline.setStyle("-fx-text-fill: green");
+                if(list.get(i).getIsOnline() == 0){
+                    isOnline.setText("Offline");
+                    isOnline.setStyle("-fx-text-fill: red");
+                }
+                friendonlinelistview.getItems().add(i,isOnline);
             }
-            friendonlinelistview.getItems().add(i,isOnline);
+            friendonlinelistview.setStyle("-fx-background-insets: 0 ;" +
+                    "-fx-padding: 0;");
+            friendonlinelistview.setStyle("-fx-background-color: transparent");
+            friendlistview.setStyle("-fx-selection-bar-non-focused: purple ;");
+            friendlistview.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent e) {
+                    friendname = (String)friendlistview.getSelectionModel().getSelectedItem();
+                    try {
+                        root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                    stage = new Stage();
+                    scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.setTitle("Profile");
+                    stage.initModality(Modality.APPLICATION_MODAL);
+                    if (e.getSource() == profile) {
+                        stage.initOwner(profile.getScene().getWindow());
+                    } else if (e.getSource() == ldrbrdprofile) {
+                        stage.initOwner(ldrbrdprofile.getScene().getWindow());
+                    }
+                    stage.getIcons().add(icon);
+                    stage.showAndWait();
+                }
+            });
         }
-        friendonlinelistview.setStyle("-fx-background-color: transparent");
-        friendonlinelistview.setMouseTransparent(false);
-        friendlistview.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent e) {
-                friendname = (String)friendlistview.getSelectionModel().getSelectedItem();
-                try {
-                    root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
-                stage = new Stage();
-                scene = new Scene(root);
-                stage.setScene(scene);
-                stage.setTitle("Profile");
-                stage.initModality(Modality.APPLICATION_MODAL);
-                if (e.getSource() == profile) {
-                    stage.initOwner(profile.getScene().getWindow());
-                } else if (e.getSource() == ldrbrdprofile) {
-                    stage.initOwner(ldrbrdprofile.getScene().getWindow());
-                }
-                stage.getIcons().add(icon);
-                stage.showAndWait();
-            }
-        });
     }
 }

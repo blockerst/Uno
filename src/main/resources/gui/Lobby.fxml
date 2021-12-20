@@ -32,7 +32,6 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
@@ -40,24 +39,15 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="412.0" prefWidth="857.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.LobbyController">
 <children>
-      <ImageView fitHeight="420.0" fitWidth="892.0" layoutY="-2.0">
+      <ImageView fitHeight="418.0" fitWidth="686.0">
          <image>
-            <Image url="@uno-minimalista-cards-2-1024x576.jpg" />
+            <Image url="@jYBRRjn.jpeg" />
          </image>
       </ImageView>
-<Label alignment="CENTER" layoutX="313.0" layoutY="62.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="UNO" textAlignment="CENTER" textFill="#e1110d" wrapText="false">
-  <font>
-    <Font name="System Bold" size="36.0" fx:id="x1" />
-  </font>
-</Label>
-      <Button fx:id="crtGame" layoutX="375.0" layoutY="143.0" mnemonicParsing="false" onAction="#createGame" prefHeight="43.0" prefWidth="128.0" text="Create Game" textFill="#d91e1e" />
-      <Button fx:id="ldrboard" layoutX="207.0" layoutY="143.0" mnemonicParsing="false" onAction="#toLeaderBoard" prefHeight="43.0" prefWidth="128.0" text="Leaderboard" textFill="#1da46e" />
-      <Button fx:id="tutorial" layoutX="207.0" layoutY="220.0" mnemonicParsing="false" onAction="#toTutorialMode" prefHeight="43.0" prefWidth="128.0" text="Tutorial " textFill="#221aff" />
-      <SplitPane dividerPositions="0.29923518164435947" layoutX="685.0" layoutY="-2.0" orientation="VERTICAL" prefHeight="420.0" prefWidth="216.0">
+      <SplitPane dividerPositions="0.30741626794258375" layoutX="685.0" layoutY="-2.0" orientation="VERTICAL" prefHeight="420.0" prefWidth="216.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="122.0" prefWidth="215.0">
                <children>
@@ -80,24 +70,16 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <ScrollPane prefHeight="290.0" prefWidth="210.0">
+                  <ScrollPane prefHeight="290.0" prefWidth="230.0">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="292.0" prefWidth="193.0">
                            <children>
-                              <SplitPane fx:id="split" dividerPositions="0.569214876033058" layoutX="1.0" prefHeight="290.0" prefWidth="195.0">
-                                <items>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                                       <children>
-                                          <ListView fx:id="friendlistview" prefHeight="290.0" prefWidth="108.0" />
-                                       </children>
-                                    </AnchorPane>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                                       <children>
-                                          <ListView fx:id="friendonlinelistview" layoutX="-1.0" prefHeight="290.0" prefWidth="82.0" />
-                                       </children>
-                                    </AnchorPane>
-                                </items>
-                              </SplitPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="110.0">
+                                 <children>
+                                    <ListView fx:id="friendlistview" layoutX="-0.9" layoutY="-0.05" prefHeight="404.0" prefWidth="115.0" />
+                                    <ListView fx:id="friendonlinelistview" layoutX="114.0" prefHeight="404.0" prefWidth="100.0" />
+                                 </children>
+                              </AnchorPane>
                            </children></AnchorPane>
                     </content>
                   </ScrollPane>
@@ -105,6 +87,25 @@
             </AnchorPane>
         </items>
       </SplitPane>
-      <Button fx:id="addfriend" layoutX="375.0" layoutY="220.0" mnemonicParsing="false" onAction="#addFriend" prefHeight="43.0" prefWidth="128.0" text="Add Friend" textFill="#a3a322" />
+      <ImageView fitHeight="86.0" fitWidth="213.0" layoutX="63.0" layoutY="293.0" onMouseClicked="#toLeaderBoard" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@leaderboard.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="85.0" fitWidth="195.0" layoutX="59.0" layoutY="59.0" onMouseClicked="#createGame" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@creategame.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="85.0" fitWidth="198.0" layoutX="439.0" layoutY="293.0" onMouseClicked="#addFriend" opacity="0.85" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@addfriends.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="84.0" fitWidth="198.0" layoutX="439.0" layoutY="63.0" onMouseClicked="#toTutorialMode" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@tutorial.png" />
+         </image>
+      </ImageView>
 </children>
 </AnchorPane>

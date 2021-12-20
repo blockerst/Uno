@@ -92,12 +92,14 @@ public class CommonProfileController implements Initializable{
             ImageView iw = new ImageView();
             iw.setFitHeight(108);
             iw.setFitWidth(78);
-            iw.setImage(new Image("file:C:\\Users\\Asus\\Desktop\\UNO\\src\\main\\resources\\cards\\"+ rewards.get(i).getName()+".png"));
+            iw.setImage(new Image("file:src/main/Resources/cards/"+ rewards.get(i).getName()+".png"));
             iw.setLayoutX(x);
             anchorpane.getChildren().add(iw);
             x += 88;
         }
     }
+
+
     public Image checkProfilePic(int id){
         System.out.println("x");
         if(id == 1){

@@ -84,13 +84,12 @@ public class LeaderboardController implements Initializable {
     private Parent root;
 
     @FXML
-    public void toLobby(ActionEvent e) throws IOException{
+    public void toLobby(MouseEvent e) throws IOException{
         root = FXMLLoader.load(getClass().getResource("Lobby.fxml"));
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-
     }
     @FXML
     public void toSettings(MouseEvent e) throws IOException{
@@ -130,7 +129,7 @@ public class LeaderboardController implements Initializable {
         stage.showAndWait();
     }
     @FXML
-    public void addFriend(ActionEvent e) throws IOException{
+    public void addFriend(MouseEvent e) throws IOException{
         root = FXMLLoader.load(getClass().getResource("Add_Friends.fxml"));
         stage = new Stage();
         stage.setTitle("Add Friend");
@@ -170,52 +169,60 @@ public class LeaderboardController implements Initializable {
         point.setCellValueFactory(new PropertyValueFactory<>("point"));
         point.setResizable(false);
         point.setReorderable(false);
-        //here you add the friends from an array from the database
-        ObservableList<Competitor> lista = FXCollections.observableArrayList();
-        ArrayList<User> users = LoginController.db.getTop100();
         friendonlinelistview.setMouseTransparent( true );
-
         friendonlinelistview.setStyle("-fx-background-color: transparent");
-        for(int i = 0; i < users.size(); i++){
-            User u = users.get(i);
-            lista.add(i,new Competitor(new SimpleIntegerProperty(u.getRank()),new SimpleStringProperty(u.getUsername()),new SimpleIntegerProperty(u.getNOGame()),new SimpleIntegerProperty(u.getNOWin()),new SimpleIntegerProperty(u.getPoint())));
-        }
-        leaderboard.setItems(lista);
-        ArrayList<User> list = LoginController.db.getFriends(LoginController.user);
-        for(int i = 0; i < list.size(); i++){
-            Label isOnline = new Label("");
-            friendlistview.getItems().add(i,list.get(i).getUsername());
-            isOnline.setText("Online");
-            isOnline.setStyle("-fx-text-fill: green");
-            if(list.get(i).getIsOnline() == 0){
-                isOnline.setText("Offline");
-                isOnline.setStyle("-fx-text-fill: red");
-            }
-            friendonlinelistview.getItems().add(i,isOnline);
+        ThreadLdrboard ldr = new ThreadLdrboard();
 
-            friendlistview.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent e) {
-                    LobbyController.friendname = (String)friendlistview.getSelectionModel().getSelectedItem();
-                    try {
-                        root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
-                    }
-                    stage = new Stage();
-                    scene = new Scene(root);
-                    stage.setScene(scene);
-                    stage.setTitle("Profile");
-                    stage.initModality(Modality.APPLICATION_MODAL);
-                    if (e.getSource() == profile) {
-                        stage.initOwner(profile.getScene().getWindow());
-                    } else if (e.getSource() == ldrbrdprofile) {
-                        stage.initOwner(ldrbrdprofile.getScene().getWindow());
-                    }
-                    stage.getIcons().add(icon);
-                    stage.showAndWait();
+        ldr.start();
+    }
+    private class ThreadLdrboard extends Thread
+    {
+        @Override
+        public void run() {
+            //here you add the friends from an array from the database
+            ObservableList<Competitor> lista = FXCollections.observableArrayList();
+            ArrayList<User> users = LoginController.db.getTop100();
+            for(int i = 0; i < users.size(); i++){
+                User u = users.get(i);
+                lista.add(i,new Competitor(new SimpleIntegerProperty(u.getRank()),new SimpleStringProperty(u.getUsername()),new SimpleIntegerProperty(u.getNOGame()),new SimpleIntegerProperty(u.getNOWin()),new SimpleIntegerProperty(u.getPoint())));
+            }
+            leaderboard.setItems(lista);
+            ArrayList<User> list = LoginController.db.getFriends(LoginController.user);
+            for(int i = 0; i < list.size(); i++){
+                Label isOnline = new Label("");
+                friendlistview.getItems().add(i,list.get(i).getUsername());
+                isOnline.setText("Online");
+                isOnline.setStyle("-fx-text-fill: green");
+                if(list.get(i).getIsOnline() == 0){
+                    isOnline.setText("Offline");
+                    isOnline.setStyle("-fx-text-fill: red");
                 }
-            });
+                friendonlinelistview.getItems().add(i,isOnline);
+
+                friendlistview.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent e) {
+                        LobbyController.friendname = (String)friendlistview.getSelectionModel().getSelectedItem();
+                        try {
+                            root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
+                        stage = new Stage();
+                        scene = new Scene(root);
+                        stage.setScene(scene);
+                        stage.setTitle("Profile");
+                        stage.initModality(Modality.APPLICATION_MODAL);
+                        if (e.getSource() == profile) {
+                            stage.initOwner(profile.getScene().getWindow());
+                        } else if (e.getSource() == ldrbrdprofile) {
+                            stage.initOwner(ldrbrdprofile.getScene().getWindow());
+                        }
+                        stage.getIcons().add(icon);
+                        stage.showAndWait();
+                    }
+                });
+            }
         }
     }
 }

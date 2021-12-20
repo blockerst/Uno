@@ -34,6 +34,7 @@ public class ConnectionSql
             con = DriverManager.getConnection(url, usernameDB, passwordDB);
             System.out.println("Connected ");
 
+
         }catch (SQLException ex)
         {
             ex.printStackTrace();
@@ -62,7 +63,7 @@ public class ConnectionSql
 
             st.executeUpdate("Insert Into Users VALUES (null ,'"
                     + username +"', '"
-                    + password +"',0,0,0,0,0,0,0,'" +date +"');");
+                    + password +"',0,0,0,0,0,0,0,'" +date +"', 0);");
             isOnlineOperation(user,true);
             return true;
         } catch (SQLException e) {
@@ -97,7 +98,7 @@ public class ConnectionSql
     {
         //check user exists or not
         if(!checkUsername(friend.getUsername())) return -1;
-
+        if(user.getUsername().equals(friend.getUsername())) return 2;
         //check they are already friend or request already sent
         try {
             ResultSet rs = st.executeQuery("Select * from Friends where (username1 = '"+ friend.getUsername() +"' AND " +
@@ -107,11 +108,6 @@ public class ConnectionSql
                 int isOnline = rs.getInt("Confirmed");
                 if (isOnline == 0) return 0;
                 if (isOnline == 1) return 2;
-            }
-            if(rs.next()){
-                int isOnline = rs.getInt("Confirmed");
-                if(isOnline == 0) return 0;
-                if(isOnline == 1) return 2;
             }
 
         } catch (SQLException e) {

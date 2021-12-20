@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
@@ -48,7 +49,7 @@ public class ProfileController implements Initializable{
     private Parent root;
 
     @FXML
-    public void seeFriendshipRequest(ActionEvent e) throws IOException {
+    public void seeFriendshipRequest(MouseEvent e) throws IOException {
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("FriendshipRequest.fxml"));
         scene = new Scene(root);
@@ -85,7 +86,7 @@ public class ProfileController implements Initializable{
             ImageView iw = new ImageView();
             iw.setFitHeight(108);
             iw.setFitWidth(78);
-            iw.setImage(new Image("file:C:\\Users\\Asus\\Desktop\\UNO\\src\\main\\resources\\cards\\"+ rewards.get(i).getName()+".png"));
+            iw.setImage(new Image("file:src/main/Resources/cards/"+ rewards.get(i).getName()+".png"));
             iw.setLayoutX(x);
             anchorpane.getChildren().add(iw);
             x += 88;

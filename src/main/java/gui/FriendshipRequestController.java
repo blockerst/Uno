@@ -14,6 +14,7 @@ import javafx.scene.paint.Color;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class FriendshipRequestController implements Initializable {
@@ -33,8 +34,10 @@ public class FriendshipRequestController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        for(int i = 0; i < LoginController.db.getFriendRequests(LoginController.user).size(); i++){
-            listview.getItems().add(i,LoginController.db.getFriendRequests(LoginController.user).get(i).getUsername());
+        ArrayList<User> requ = LoginController.db.getFriendRequests(LoginController.user);
+        if(requ.size() == 0) listview.setVisible(false);
+        for(int i = 0; i < requ.size(); i++){
+            listview.getItems().add(i,requ.get(i).getUsername());
         }
 
     }

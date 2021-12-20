@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import org.controlsfx.control.action.Action;
@@ -54,7 +55,7 @@ public class SettingsController implements Initializable{
     private Parent root;
 
     @FXML
-    public void toLogin(ActionEvent e) throws IOException {
+    public void toLogin(MouseEvent e) throws IOException {
         LoginController.db.isOnlineOperation(LoginController.user, false);
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
         stage.close();
@@ -74,7 +75,7 @@ public class SettingsController implements Initializable{
         }
     }
     @FXML
-    public void seeFriendReq(ActionEvent e) throws IOException{
+    public void seeFriendReq(MouseEvent e) throws IOException{
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("FriendshipRequest.fxml"));
         scene = new Scene(root);
@@ -82,7 +83,7 @@ public class SettingsController implements Initializable{
         stage.show();
     }
     @FXML
-    public void changePass(ActionEvent e) throws IOException{
+    public void changePass(MouseEvent e) throws IOException{
         String oldpass = oldpassfield.getText();
         String newpass = newpassfield.getText();
         String newpassagain = newpassfieldagain.getText();
@@ -101,11 +102,11 @@ public class SettingsController implements Initializable{
         }
     }
     @FXML
-    public void changeUserNam(ActionEvent e) throws IOException{
+    public void changeUserNam(MouseEvent e) throws IOException{
         String nam = newnamfield.getText();
         if(LoginController.db.changeUsername(LoginController.user,nam)){
-            changenamlabel.setText("Username changed!");
-            changenamlabel.setVisible(true);
+            passcorrectionlabel.setText("Username changed!");
+            passcorrectionlabel.setVisible(true);
             LoginController.user.setUsername(nam);
         }
     }

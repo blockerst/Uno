@@ -32,7 +32,6 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
@@ -58,13 +57,13 @@
                         </ImageView>
                   <AnchorPane layoutX="51.0" layoutY="97.0" prefHeight="366.0" prefWidth="619.0">
                      <children>
-                                <TableView fx:id="leaderboard" prefHeight="366.0" prefWidth="635.0">
+                                <TableView fx:id="leaderboard" opacity="0.88" prefHeight="366.0" prefWidth="635.0">
                                     <columns>
                                         <TableColumn fx:id="rank" prefWidth="98.0" text="Rank" />
                                         <TableColumn fx:id="plyrnam" prefWidth="182.0" text="Player Name" />
-                                        <TableColumn fx:id="plyrgamenum" prefWidth="151.0" text="Played Game Number" />
-                                        <TableColumn fx:id="gameswon" prefWidth="112.80007934570312" text="Games Won" />
-                                        <TableColumn fx:id="point" minWidth="0.0" prefWidth="75.0" text="Point" />
+                                        <TableColumn fx:id="plyrgamenum" prefWidth="139.0" text="Played Game Number" />
+                                        <TableColumn fx:id="gameswon" prefWidth="110.0" text="Games Won" />
+                                        <TableColumn fx:id="point" minWidth="0.0" text="Point" />
                                     </columns>
                                 </TableView>
                      </children>
@@ -74,7 +73,11 @@
                                 <Font name="System Bold" size="40.0" />
                             </font>
                         </Label>
-                        <Button fx:id="tolobby" layoutX="339.0" layoutY="490.0" mnemonicParsing="false" onAction="#toLobby" text="To Lobby" textFill="#153adc" />
+                  <ImageView fitHeight="60.0" fitWidth="138.0" layoutX="297.0" layoutY="488.0" onMouseClicked="#toLobby" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@tolobby.png" />
+                     </image>
+                  </ImageView>
                     </children>
                 </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="599.0" prefWidth="229.0">
@@ -106,16 +109,21 @@
                                             <items>
                                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="501.0" prefWidth="230.0">
                                                     <children>
-                                                        <ScrollPane layoutX="7.0" prefHeight="439.0" prefWidth="237.0">
+                                                        <ScrollPane layoutX="7.0" prefHeight="439.0" prefWidth="254.0">
                                                             <content>
                                                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="438.0" prefWidth="220.0">
                                                    <children>
-                                                      <ListView fx:id="friendlistview" layoutX="1.0" layoutY="1.0" prefHeight="566.0" prefWidth="136.0" />
-                                                      <ListView fx:id="friendonlinelistview" layoutX="134.0" layoutY="1.0" prefHeight="540.0" prefWidth="83.0" />
-                                                   </children></AnchorPane>
+                                                      <ListView fx:id="friendlistview" layoutY="1.0" prefHeight="566.0" prefWidth="136.0" />
+                                                      <ListView fx:id="friendonlinelistview" layoutX="133.0" layoutY="1.0" prefHeight="540.0" prefWidth="103.0" />
+                                                   </children>
+                                                </AnchorPane>
                                                             </content>
                                                         </ScrollPane>
-                                                        <Button fx:id="leaderfriendbut" layoutX="102.0" layoutY="450.0" mnemonicParsing="false" onAction="#addFriend" text="Add Friend" textFill="#f0800e" />
+                                          <ImageView fitHeight="73.0" fitWidth="143.0" layoutX="50.0" layoutY="450.0" onMouseClicked="#addFriend" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@addfriend.png" />
+                                             </image>
+                                          </ImageView>
                                                     </children>
                                                 </AnchorPane>
                                             </items>

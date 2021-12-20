@@ -51,7 +51,7 @@ public class LoginController implements Initializable {
         return lobbyStage;
     }
     @FXML
-    public void signUp(ActionEvent e) throws IOException{
+    public void signUp(MouseEvent e) throws IOException{
         String userName = tf.getText();
         String userPass = pf.getText();
         if(db.signUp(new User(userName,userPass))){
@@ -73,7 +73,7 @@ public class LoginController implements Initializable {
         }
     }
     @FXML
-    public void signIn(ActionEvent e) throws IOException {
+    public void signIn(MouseEvent e) throws IOException {
         String userName = tf.getText();
         String userPass = pf.getText();
         int check = db.singInCheck(new User(userName,userPass));
@@ -166,6 +166,21 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        pf.setStyle("-fx-focus-color: transparent;");
+        tf.setStyle("-fx-focus-color: transparent;");
+        tf.requestFocus();
         db = ConnectionSql.getInstance();
+        ThreadLogin logn = new ThreadLogin();
+        logn.start();
     }
+    private class ThreadLogin extends Thread
+    {
+
+        @Override
+        public void run()
+        {
+            db = ConnectionSql.getInstance();
+        }
+    }
+
 }
