@@ -60,7 +60,7 @@
             <Ellipse fill="DODGERBLUE" layoutX="1152.0" layoutY="420.0" opacity="0.32" radiusX="83.0" radiusY="57.0" stroke="#fcf9f9" strokeType="INSIDE" />
             <Label alignment="CENTER" layoutX="1116.0" layoutY="395.0" prefHeight="17.0" prefWidth="73.0" text="User2" />
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1128.0" layoutY="420.0" prefHeight="17.0" prefWidth="50.0" text="Timer" />
-            <FlowPane fx:id="playercardsflowpane" alignment="CENTER" columnHalignment="CENTER" hgap="5.0" layoutX="597.0" layoutY="678.0" prefHeight="73.0" prefWidth="421.0" vgap="5.0">
+            <FlowPane fx:id="playercardsflowpane" alignment="CENTER" columnHalignment="CENTER" hgap="5.0" layoutX="230.0" layoutY="676.0" prefHeight="79.0" prefWidth="1155.0" vgap="5.0">
                <children>
                   <ImageView fx:id="card1" fitHeight="79.0" fitWidth="57.0" onMouseClicked="#cardSelection" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -111,7 +111,7 @@
                   <Image url="@../cards/Red0.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="backcard" fitHeight="137.0" fitWidth="122.0" layoutX="803.5999755859375" layoutY="382.3999938964844" onMouseClicked="#drawCard" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="backcard" fitHeight="136.0" fitWidth="99.0" layoutX="803.0" layoutY="383.0" onMouseClicked="#drawCard" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../cards/back2.jpeg" />
                </image>

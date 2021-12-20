@@ -3,6 +3,7 @@ package gui;
 import javafx.animation.ScaleTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -74,62 +75,69 @@ public class GameController implements Initializable {
     @FXML
     public void cardSelection(MouseEvent e) throws IOException{
         ImageView iw = new ImageView();
-        System.out.println("aaasd");
         ImageView selected = (ImageView) e.getSource();
-        System.out.println("asdawda");
-        System.out.println("aaaaaaaaaaaaaaaaaaaa");
         iw.setImage(selected.getImage());
-        System.out.println("asasasd");
-        System.out.println("e x: "+(selected.getX()));
-        iw.setX(selected.getX()+597);
-        System.out.println("iw x: " + iw.getX());
-        iw.setY(678);
-        System.out.println("iw y: " + iw.getY());
+        iw.setX(((ImageView) e.getSource()).getLayoutX()+playercardsflowpane.getLayoutX());
+        iw.setY(playercardsflowpane.getLayoutY());
         iw.setFitHeight(selected.getFitHeight());
         iw.setFitWidth(selected.getFitWidth());
         TranslateTransition transition = new TranslateTransition();
-        System.out.println("sddfasfasfasfaf");
         transition.setDuration(Duration.seconds(1));
-        System.out.println("sdasdasasdf");
         transition.setNode(iw);
-        System.out.println("zzzsddf");
-        System.out.println(topcardimage.getX());
-        System.out.println(iw.getX());
         Bounds boundsInScene = iw.localToScene(iw.getBoundsInLocal());
-        System.out.println("bx:"+boundsInScene.getMinX());
-        transition.setByX(696-boundsInScene.getMinX());
-        transition.setByY(-295);
+        transition.setToX(topcardimage.getLayoutX()-boundsInScene.getMinX()+21);
+        transition.setToY(topcardimage.getLayoutY()-playercardsflowpane.getLayoutY()+28.5);
         ScaleTransition scaleTransition = new ScaleTransition();
         scaleTransition.setDuration(Duration.seconds(1));
         scaleTransition.setNode(iw);
-        scaleTransition.setByX(.99);
-        scaleTransition.setByY(.136);
-        System.out.println("aasddf");
+        scaleTransition.setToX(1.73);
+        scaleTransition.setToY(1.72);
         transition.play();
         scaleTransition.play();
-        System.out.println("xxxxsddf");
         pane.getChildren().add(iw);
         playercardsflowpane.getChildren().remove(e.getSource());
-        System.out.println("qqqq");
-        System.out.println(iw.getX());
     }
     @FXML
     public void drawCard(MouseEvent e) throws IOException{
-        System.out.println("asd");
-        ImageView iw = (ImageView) e.getSource();
-        System.out.println("d");
-        double fromx = iw.getX();
-        double fromy = iw.getY();
-        double tox = card1.getX();
-        double toy = card1.getY();
-        System.out.println("a");
+        //copy backcardimage and x and y and create its total copy
+        ImageView iw = new ImageView();
+        ImageView selected = (ImageView) e.getSource();
+        iw.setFitWidth(selected.getFitWidth());
+        iw.setFitHeight(selected.getFitHeight());
+        iw.setLayoutX(selected.getLayoutX());
+        iw.setLayoutY(selected.getLayoutY());
+        iw.setImage(selected.getImage());
+        pane.getChildren().add(iw);
         TranslateTransition translate = new TranslateTransition();
-        translate.setDuration(Duration.millis(500));
-        translate.setToX(tox);
-        translate.setToY(toy);
+        translate.setDuration(Duration.seconds(1));
+        translate.setToX(getLastCardImageView().getLayoutX()+playercardsflowpane.getLayoutX()-iw.getLayoutX()-21+67);
+        translate.setToY(playercardsflowpane.getLayoutY()-iw.getLayoutY()-28.5);
         translate.setNode(iw);
-        System.out.println("xx");
+        ScaleTransition scaleTransition = new ScaleTransition();
+        scaleTransition.setDuration(Duration.millis(500));
+        scaleTransition.setNode(iw);
+        scaleTransition.setToX(0.57);
+        scaleTransition.setToY(0.58);
         translate.play();
-        System.out.println("<<");
+        scaleTransition.play();
+        translate.setOnFinished(new EventHandler<ActionEvent>(){
+            public void handle(ActionEvent e){
+                playercardsflowpane.getChildren().add(iw);
+                pane.getChildren().remove(iw);
+                iw.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent mouseEvent) {
+                        try {
+                            cardSelection(mouseEvent);
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
+                    }
+                });
+            }
+        });
+    }
+    public ImageView getLastCardImageView(){
+        return (ImageView) playercardsflowpane.getChildren().get(playercardsflowpane.getChildren().size()-1);
     }
 }
