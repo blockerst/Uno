@@ -98,7 +98,7 @@ public class ConnectionSql
     {
         //check user exists or not
         if(!checkUsername(friend.getUsername())) return -1;
-        if(user.getUsername().equals(friend.getUsername())) return 2;
+        if(user.getUsername().equals(friend.getUsername())) return 3;
         //check they are already friend or request already sent
         try {
             ResultSet rs = st.executeQuery("Select * from Friends where (username1 = '"+ friend.getUsername() +"' AND " +

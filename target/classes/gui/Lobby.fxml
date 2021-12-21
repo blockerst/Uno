@@ -92,7 +92,7 @@
             <Image url="@leaderboard.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="85.0" fitWidth="195.0" layoutX="59.0" layoutY="59.0" onMouseClicked="#createGame" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="84.0" fitWidth="185.0" layoutX="62.0" layoutY="60.0" onMouseClicked="#createGame" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@creategame.png" />
          </image>
