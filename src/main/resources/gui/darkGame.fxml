@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<FlowPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GameController">
+   <children>
+      <Pane fx:id="pane" prefHeight="900.0" prefWidth="1600.0">
+         <children>
+            <ImageView fitHeight="897.0" fitWidth="1621.0" layoutX="2.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@darkTable1.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="usernam" alignment="CENTER" layoutX="885.0" layoutY="786.0" prefHeight="17.0" prefWidth="67.0" text="user" textFill="#77a9ff">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label alignment="CENTER" layoutX="885.0" layoutY="838.0" prefHeight="17.0" prefWidth="67.0" text="Timer" textFill="#77a9ff" />
+            <Label alignment="CENTER" layoutX="861.0" layoutY="130.0" prefHeight="17.0" prefWidth="67.0" text="Timer" textFill="RED" />
+            <Label alignment="CENTER" layoutX="477.0" layoutY="359.0" prefHeight="17.0" prefWidth="67.0" text="Morpheus" textFill="#fce029" />
+            <Label alignment="CENTER" layoutX="477.0" layoutY="413.0" prefHeight="17.0" prefWidth="67.0" text="Timer" textFill="#fce029" />
+            <Label alignment="CENTER" layoutX="1044.0" layoutY="359.0" prefHeight="17.0" prefWidth="73.0" text="Trinity" textFill="#1cb900">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1052.0" layoutY="412.0" prefHeight="17.0" prefWidth="50.0" text="Timer" textFill="#1cb900" />
+            <FlowPane fx:id="playercardsflowpane" alignment="CENTER" columnHalignment="CENTER" hgap="5.0" layoutX="230.0" layoutY="676.0" prefHeight="79.0" prefWidth="1155.0" vgap="5.0">
+               <children>
+
+               </children>
+            </FlowPane>
+            <ImageView fx:id="exit" fitHeight="79.0" fitWidth="73.0" layoutX="1377.0" layoutY="37.0" onMouseClicked="#toLobby" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Untitled%20design/exitmiminalista.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="856.0" layoutY="77.0" prefHeight="17.0" prefWidth="79.0" text="Neo" textFill="RED">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <ImageView fx:id="topcardimage" fitHeight="136.0" fitWidth="99.0" layoutX="701.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../cards/Red0.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="backcard" fitHeight="136.0" fitWidth="99.0" layoutX="807.0" layoutY="300.0" onMouseClicked="#drawCard" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../cards/back2.jpeg" />
+               </image>
+            </ImageView>
+            <Circle layoutX="1519.0" layoutY="72.0" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
+            <ImageView fitHeight="102.0" fitWidth="96.0" layoutX="952.0" layoutY="771.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@unobutton.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1111.0" layoutY="329.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@4WVQfq6d_400x400-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="726.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Neo-The-Matrix-rol-800x425-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="324.0" layoutY="329.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@marcin-blaszczak-m-coat-01-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="profilepic" fitHeight="150.0" fitWidth="200.0" layoutX="733.0" layoutY="738.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@blank-profile-picture-973460_960_720.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="102.0" layoutX="1.0" layoutY="885.0" stroke="BLACK" strokeType="INSIDE" width="1603.0" />
+         </children>
+      </Pane>
+   </children>
+</FlowPane>

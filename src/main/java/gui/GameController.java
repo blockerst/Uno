@@ -88,7 +88,7 @@ public class GameController implements Initializable {
         exit.setClip(clip);
         usernam.setText(LoginController.user.getUsername());
         profilepic.setImage(LoginController.profilePic);
-        try {
+        try{
             redimg.setText("goktug");
         }catch (Exception e){}
         try {

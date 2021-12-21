@@ -34,22 +34,27 @@ public class ComboBoxController implements Initializable {
         //int opponentNum = (int) choiceOpp.getValue();
         System.out.println(comb.getSelectionModel().getSelectedItem());
         String selection = comb.getSelectionModel().getSelectedItem();
+        String dark = "";
+        if(LoginController.db.getDarkThemeDB(LoginController.user))
+        {
+            dark = "dark";
+        }
         if(selection.equals("2"))
         {
-            root = FXMLLoader.load(getClass().getResource("Game2bot.fxml"));
+            root = FXMLLoader.load(getClass().getResource(dark+"Game2bot.fxml"));
 
         }
         else if (selection.equals("1"))
         {
-            root = FXMLLoader.load(getClass().getResource("Game1bot.fxml"));
+            root = FXMLLoader.load(getClass().getResource(dark+"Game1bot.fxml"));
         }
         else if (selection.equals("4"))
         {
-            root = FXMLLoader.load(getClass().getResource("Game4bot.fxml"));
+            root = FXMLLoader.load(getClass().getResource(dark+"Game4bot.fxml"));
         }
         else
         {
-            root = FXMLLoader.load(getClass().getResource("Game.fxml"));
+            root = FXMLLoader.load(getClass().getResource(dark+"Game.fxml"));
 
         }
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
@@ -67,7 +72,7 @@ public class ComboBoxController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb){
-        ObservableList<String> list = FXCollections.observableArrayList("1","2","3","4","5");
+        ObservableList<String> list = FXCollections.observableArrayList("1","2","3","4");
         comb.setItems(list);
         comb.getSelectionModel().selectFirst();
     }
