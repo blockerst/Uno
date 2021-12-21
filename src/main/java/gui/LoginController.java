@@ -16,6 +16,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
@@ -30,7 +31,10 @@ public class LoginController implements Initializable {
     private Button signin;
     @FXML
     private Button signup;
-
+    @FXML
+    private ImageView inimg;
+    @FXML
+    private ImageView upimg;
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -171,7 +175,16 @@ public class LoginController implements Initializable {
         tf.requestFocus();
         db = ConnectionSql.getInstance();
         ThreadLogin logn = new ThreadLogin();
+        Rectangle rec1 = new Rectangle(inimg.getFitWidth()-45, inimg.getFitHeight());
+        rec1.setArcHeight(10);
+        rec1.setArcWidth(10);
+        inimg.setClip(rec1);
+        Rectangle rec2 = new Rectangle(upimg.getFitWidth()-11, upimg.getFitHeight());
+        rec2.setArcHeight(10);
+        rec2.setArcWidth(10);
+        upimg.setClip(rec2);
         logn.start();
+
     }
     private class ThreadLogin extends Thread
     {

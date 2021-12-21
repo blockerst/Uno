@@ -15,12 +15,12 @@
       </ImageView>
       <PasswordField fx:id="pf" layoutX="415.0" layoutY="214.0" promptText="Password" />
       <TextField fx:id="tf" layoutX="415.0" layoutY="161.0" promptText="Username" />
-      <ImageView fitHeight="34.0" fitWidth="95.0" layoutX="395.0" layoutY="268.0" onMouseClicked="#signUp" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="upimg" fitHeight="34.0" fitWidth="95.0" layoutX="415.0" layoutY="268.0" onMouseClicked="#signUp" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@sigun.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="34.0" fitWidth="129.0" layoutX="501.0" layoutY="268.0" onMouseClicked="#signIn" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="inimg" fitHeight="34.0" fitWidth="129.0" layoutX="504.0" layoutY="268.0" onMouseClicked="#signIn" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@sigin.png" />
          </image>

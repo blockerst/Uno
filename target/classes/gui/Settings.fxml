@@ -29,22 +29,22 @@
       <PasswordField fx:id="newpassfieldagain" layoutX="93.0" layoutY="240.0" promptText=" New Password Again" />
       <PasswordField fx:id="oldpassfield" layoutX="92.0" layoutY="160.0" promptText="Old Password" />
       <TextField fx:id="newnamfield" layoutX="350.0" layoutY="240.0" promptText="New Username" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="350.0" layoutY="85.0" onMouseClicked="#seeFriendReq" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="requımg" fitHeight="150.0" fitWidth="200.0" layoutX="350.0" layoutY="85.0" onMouseClicked="#seeFriendReq" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@requ.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="81.0" layoutY="282.0" onMouseClicked="#changePass" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="passimg" fitHeight="150.0" fitWidth="200.0" layoutX="81.0" layoutY="282.0" onMouseClicked="#changePass" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@pass.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="339.0" layoutY="282.0" onMouseClicked="#changeUserNam" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="userimg" fitHeight="150.0" fitWidth="200.0" layoutX="339.0" layoutY="282.0" onMouseClicked="#changeUserNam" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@username.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="200.0" layoutY="333.0" onMouseClicked="#toLogin" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="logimg" fitHeight="150.0" fitWidth="200.0" layoutX="200.0" layoutY="333.0" onMouseClicked="#toLogin" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@logout.png" />
          </image>
