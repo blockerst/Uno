@@ -19,6 +19,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -75,6 +76,10 @@ public class LeaderboardController implements Initializable {
     private SplitPane split;
     @FXML
     private Label usernam;
+    @FXML
+    private ImageView tolobbyimg;
+    @FXML
+    private ImageView addfimg;
 
     private final Image icon = new Image(getClass().getResourceAsStream("logo.png"));
     private int oppNum;
@@ -153,6 +158,16 @@ public class LeaderboardController implements Initializable {
         clip2.setCenterX(ledrbrdsettings.getFitHeight()/2);
         clip2.setCenterY(ledrbrdsettings.getFitHeight()/2);
         ledrbrdsettings.setClip(clip2);
+
+        Rectangle rec2 = new Rectangle(tolobbyimg.getFitWidth()-7, tolobbyimg.getFitHeight()-1);
+        rec2.setArcHeight(15);
+        rec2.setArcWidth(15);
+        tolobbyimg.setClip(rec2);
+        Rectangle rec1 = new Rectangle(addfimg.getFitWidth()-4, addfimg.getFitHeight()-37);
+        rec1.setArcHeight(15);
+        rec1.setArcWidth(15);
+        addfimg.setClip(rec1);
+
         leaderboard.setSelectionModel(null);
         rank.setCellValueFactory(new PropertyValueFactory<>("rank"));
         rank.setResizable(false);

@@ -43,6 +43,10 @@ public class AddFriendController implements Initializable {
             friendLabel.setText("You Are Already Friends!");
             friendLabel.setTextFill(Color.web("#c8de14"));
         }
+        else if(state == 3){
+            friendLabel.setText("You Cannot Add Yourself!");
+            friendLabel.setTextFill(Color.web("#c8de14"));
+        }
         friendLabel.setOpacity(1);
         friendLabel.setVisible(true);
     }

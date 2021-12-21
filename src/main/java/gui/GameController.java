@@ -12,6 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
@@ -51,10 +52,16 @@ public class GameController implements Initializable {
     private Pane pane;
     @FXML
     private FlowPane playercardsflowpane;
+    @FXML
+    private ImageView profilepic;
+    @FXML
+    private Label usernam;
 
     private Stage stage;
     private Scene scene;
     private Parent root;
+    private final double cardwidth = 57;
+    private final double cardheight = 79;
 
     @FXML
     public void toLobby(MouseEvent e) throws IOException{
@@ -71,6 +78,8 @@ public class GameController implements Initializable {
         clip.setCenterX(exit.getFitWidth()/2);
         clip.setCenterY(exit.getFitHeight()/2);
         exit.setClip(clip);
+        usernam.setText(LoginController.user.getUsername());
+        profilepic.setImage(LoginController.profilePic);
     }
     @FXML
     public void cardSelection(MouseEvent e) throws IOException{
@@ -96,10 +105,15 @@ public class GameController implements Initializable {
         scaleTransition.play();
         pane.getChildren().add(iw);
         playercardsflowpane.getChildren().remove(e.getSource());
+        transition.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                topcardimage.setImage(iw.getImage());
+            }
+        });
     }
     @FXML
     public void drawCard(MouseEvent e) throws IOException{
-        //copy backcardimage and x and y and create its total copy
         ImageView iw = new ImageView();
         ImageView selected = (ImageView) e.getSource();
         iw.setFitWidth(selected.getFitWidth());
@@ -107,11 +121,12 @@ public class GameController implements Initializable {
         iw.setLayoutX(selected.getLayoutX());
         iw.setLayoutY(selected.getLayoutY());
         iw.setImage(selected.getImage());
+        iw.setId(selected.getId());
         pane.getChildren().add(iw);
         TranslateTransition translate = new TranslateTransition();
         translate.setDuration(Duration.seconds(1));
-        translate.setToX(getLastCardImageView().getLayoutX()+playercardsflowpane.getLayoutX()-iw.getLayoutX()-21+67);
-        translate.setToY(playercardsflowpane.getLayoutY()-iw.getLayoutY()-28.5);
+        translate.setToX(getLastCardImageView().getLayoutX()+playercardsflowpane.getLayoutX()-iw.getLayoutX()-cardwidth/2+67);
+        translate.setToY(playercardsflowpane.getLayoutY()-iw.getLayoutY()-cardheight/2);
         translate.setNode(iw);
         ScaleTransition scaleTransition = new ScaleTransition();
         scaleTransition.setDuration(Duration.millis(500));
@@ -122,9 +137,13 @@ public class GameController implements Initializable {
         scaleTransition.play();
         translate.setOnFinished(new EventHandler<ActionEvent>(){
             public void handle(ActionEvent e){
-                playercardsflowpane.getChildren().add(iw);
+                ImageView iw2 = new ImageView();
+                iw2.setImage(card1.getImage());
+                iw2.setFitWidth(cardwidth);
+                iw2.setFitHeight(cardheight);
+                playercardsflowpane.getChildren().add(iw2);
                 pane.getChildren().remove(iw);
-                iw.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                iw2.setOnMouseClicked(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent mouseEvent) {
                         try {

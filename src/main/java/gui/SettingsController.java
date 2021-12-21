@@ -14,8 +14,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import org.controlsfx.control.action.Action;
 
@@ -49,6 +51,14 @@ public class SettingsController implements Initializable{
     private Label changenamlabel;
     @FXML
     private TextField oldnamfield;
+    @FXML
+    private ImageView requımg;
+    @FXML
+    private ImageView userimg;
+    @FXML
+    private ImageView passimg;
+    @FXML
+    private ImageView logimg;
 
     private Stage stage;
     private Scene scene;
@@ -119,5 +129,24 @@ public class SettingsController implements Initializable{
         else{
             darkmodethemecheckbox.setSelected(false);
         }
+        Rectangle rec3 = new Rectangle(requımg.getFitWidth()-1, requımg.getFitHeight()-114);
+        rec3.setArcHeight(10);
+        rec3.setArcWidth(10);
+        requımg.setClip(rec3);
+        Rectangle rec1 = new Rectangle(requımg.getFitWidth()-1, requımg.getFitHeight()-114);
+        rec1.setArcHeight(10);
+        rec1.setArcWidth(10);
+        passimg.setClip(rec1);
+        Rectangle rec2 = new Rectangle(requımg.getFitWidth()-1, requımg.getFitHeight()-114);
+        rec2.setArcHeight(10);
+        rec2.setArcWidth(10);
+        userimg.setClip(rec2);
+        Rectangle rec4 = new Rectangle(logimg.getFitWidth()-1, logimg.getFitHeight()-98);
+        rec4.setArcHeight(10);
+        rec4.setArcWidth(10);
+        logimg.setClip(rec4);
+
+
+
     }
 }

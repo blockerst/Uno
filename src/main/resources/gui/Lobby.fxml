@@ -87,22 +87,22 @@
             </AnchorPane>
         </items>
       </SplitPane>
-      <ImageView fitHeight="86.0" fitWidth="213.0" layoutX="63.0" layoutY="293.0" onMouseClicked="#toLeaderBoard" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ldrimg" fitHeight="86.0" fitWidth="213.0" layoutX="63.0" layoutY="293.0" onMouseClicked="#toLeaderBoard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@leaderboard.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="85.0" fitWidth="195.0" layoutX="59.0" layoutY="59.0" onMouseClicked="#createGame" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="crtgamebtn" fitHeight="85.0" fitWidth="195.0" layoutX="59.0" layoutY="59.0" onMouseClicked="#createGame" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@creategame.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="85.0" fitWidth="198.0" layoutX="439.0" layoutY="293.0" onMouseClicked="#addFriend" opacity="0.85" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="addfimg" fitHeight="85.0" fitWidth="198.0" layoutX="439.0" layoutY="293.0" onMouseClicked="#addFriend" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@addfriends.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="84.0" fitWidth="198.0" layoutX="439.0" layoutY="63.0" onMouseClicked="#toTutorialMode" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="tutoimg" fitHeight="84.0" fitWidth="198.0" layoutX="439.0" layoutY="63.0" onMouseClicked="#toTutorialMode" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@tutorial.png" />
          </image>
