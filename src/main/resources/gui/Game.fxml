@@ -44,13 +44,19 @@
    <children>
       <Pane fx:id="pane" prefHeight="900.0" prefWidth="1600.0">
          <children>
-            <ImageView fitHeight="1080.0" fitWidth="1920.0" layoutX="-162.0" layoutY="-92.0">
+            <ImageView fitHeight="1080.0" fitWidth="1920.0" layoutX="-130.0" layoutY="-92.0">
                <image>
                   <Image url="@light3.png" />
                </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="849.0" layoutY="102.0" prefHeight="17.0" prefWidth="67.0" text="Timer" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1277.0" layoutY="527.0" prefHeight="17.0" prefWidth="50.0" text="Timer" />
+            <Label alignment="CENTER" layoutX="902.0" layoutY="98.0" prefHeight="17.0" prefWidth="67.0" text="Timer">
+               <font>
+                  <Font size="23.0" />
+               </font></Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1158.0" layoutY="556.0" prefHeight="28.0" prefWidth="74.0" text="Timer">
+               <font>
+                  <Font size="23.0" />
+               </font></Label>
             <FlowPane fx:id="playercardsflowpane" alignment="CENTER" columnHalignment="CENTER" hgap="5.0" layoutX="200.0" layoutY="658.0" prefHeight="79.0" prefWidth="1200.0" vgap="5.0">
                <children>
                   <ImageView fx:id="card1" fitHeight="79.0" fitWidth="57.0" onMouseClicked="#cardSelection" pickOnBounds="true" preserveRatio="true">
@@ -90,18 +96,21 @@
                   </ImageView>
                </children>
             </FlowPane>
-            <ImageView fx:id="exit" fitHeight="80.0" fitWidth="80.0" layoutX="1479.0" layoutY="30.0" onMouseClicked="#toLobby" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="exit" fitHeight="80.0" fitWidth="80.0" layoutX="1415.0" layoutY="46.0" onMouseClicked="#toLobby" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Untitled%20design/exitmiminalista.png" />
                </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="843.0" layoutY="80.0" prefHeight="17.0" prefWidth="79.0" text="User3" />
-            <ImageView fx:id="topcardimage" fitHeight="136.0" fitWidth="99.0" layoutX="636.0" layoutY="370.0" pickOnBounds="true" preserveRatio="true">
+            <Label fx:id="redimg" alignment="CENTER" layoutX="738.0" layoutY="52.0" prefHeight="43.0" prefWidth="116.0" text="User3" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="29.0" />
+               </font></Label>
+            <ImageView fx:id="topcardimage" fitHeight="136.0" fitWidth="99.0" layoutX="689.0" layoutY="385.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../cards/Red0.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="backcard" fitHeight="136.0" fitWidth="99.0" layoutX="765.0" layoutY="370.0" onMouseClicked="#drawCard" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="backcard" fitHeight="136.0" fitWidth="99.0" layoutX="811.0" layoutY="385.0" onMouseClicked="#drawCard" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../cards/back2.jpeg" />
                </image>
@@ -125,31 +134,34 @@
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Label>
-            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="357.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="457.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@bot-icon-2883144_960_720.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="1134.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="1034.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@BotPic-removebg-preview.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="718.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="745.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@BotPic-removebg-preview.png" />
                </image>
             </ImageView>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#00f504bf" height="42.0" layoutX="340.0" layoutY="358.0" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-width: 40; -fx-arc-height: 40;" width="128.0" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="341.0" layoutY="369.0" prefHeight="21.0" prefWidth="128.0" text="User4" textFill="#ec0909">
+            <Label fx:id="yellowimg" alignment="CENTER" contentDisplay="CENTER" layoutX="256.0" layoutY="429.0" prefHeight="21.0" prefWidth="220.0" rotate="270.0" text="User4" textAlignment="CENTER">
                <font>
-                  <Font name="System Bold" size="15.0" />
+                  <Font name="System Bold" size="29.0" />
                </font></Label>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ffbf" height="100.0" layoutX="1246.0" layoutY="401.0" stroke="BLACK" strokeType="INSIDE" style="-fx-arc-height: 40; -fx-arc-width: 40;" width="90.0" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1246.0" layoutY="438.0" prefHeight="21.0" prefWidth="90.0" text="User2" textFill="#f40a0a">
+            <Label fx:id="greenimg" alignment="CENTER" contentDisplay="CENTER" layoutX="1189.0" layoutY="425.0" prefHeight="24.0" prefWidth="85.0" rotate="90.0" text="User2" textAlignment="CENTER">
                <font>
-                  <Font name="System Bold" size="16.0" />
+                  <Font name="System Bold" size="29.0" />
                </font></Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="360.0" layoutY="555.0" prefHeight="28.0" prefWidth="74.0" text="Timer">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>

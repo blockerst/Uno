@@ -141,7 +141,7 @@ public class SettingsController implements Initializable{
         rec2.setArcHeight(10);
         rec2.setArcWidth(10);
         userimg.setClip(rec2);
-        Rectangle rec4 = new Rectangle(logimg.getFitWidth()-1, logimg.getFitHeight()-98);
+        Rectangle rec4 = new Rectangle(logimg.getFitWidth()-11, logimg.getFitHeight()-213);
         rec4.setArcHeight(10);
         rec4.setArcWidth(10);
         logimg.setClip(rec4);

@@ -44,7 +44,7 @@
             <Image url="@username.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="logimg" fitHeight="150.0" fitWidth="200.0" layoutX="200.0" layoutY="333.0" onMouseClicked="#toLogin" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="logimg" fitHeight="37.0" fitWidth="178.0" layoutX="228.0" layoutY="349.0" onMouseClicked="#toLogin" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@logout.png" />
          </image>

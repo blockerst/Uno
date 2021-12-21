@@ -32,7 +32,26 @@ public class ComboBoxController implements Initializable {
     @FXML
     public void start(ActionEvent e) throws IOException {
         //int opponentNum = (int) choiceOpp.getValue();
-        root = FXMLLoader.load(getClass().getResource("Game.fxml"));
+        System.out.println(comb.getSelectionModel().getSelectedItem());
+        String selection = comb.getSelectionModel().getSelectedItem();
+        if(selection.equals("2"))
+        {
+            root = FXMLLoader.load(getClass().getResource("Game2bot.fxml"));
+
+        }
+        else if (selection.equals("1"))
+        {
+            root = FXMLLoader.load(getClass().getResource("Game1bot.fxml"));
+        }
+        else if (selection.equals("4"))
+        {
+            root = FXMLLoader.load(getClass().getResource("Game4bot.fxml"));
+        }
+        else
+        {
+            root = FXMLLoader.load(getClass().getResource("Game.fxml"));
+
+        }
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         stage.close();
         stage = LoginController.getLobbyStage();

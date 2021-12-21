@@ -56,6 +56,14 @@ public class GameController implements Initializable {
     private ImageView profilepic;
     @FXML
     private Label usernam;
+    @FXML
+    private Label blackimg;
+    @FXML
+    private Label redimg;
+    @FXML
+    private Label yellowimg;
+    @FXML
+    private Label greenimg;
 
     private Stage stage;
     private Scene scene;
@@ -80,6 +88,20 @@ public class GameController implements Initializable {
         exit.setClip(clip);
         usernam.setText(LoginController.user.getUsername());
         profilepic.setImage(LoginController.profilePic);
+        try {
+            redimg.setText("goktug");
+        }catch (Exception e){}
+        try {
+            blackimg.setText("Sarp");
+        }catch (Exception e){}
+        try {
+            greenimg.setText("eoguz");
+        }catch (Exception e){}
+        try {
+            yellowimg.setText("anil");
+        }catch (Exception e){}
+
+
     }
     @FXML
     public void cardSelection(MouseEvent e) throws IOException{
