@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="243.0" prefWidth="398.0" text="Send Friendship Request" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AddFriendController">
+  <content>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+         <children>
+            <ImageView fitHeight="221.0" fitWidth="398.0" layoutY="-2.0">
+               <image>
+                  <Image url="@friendbackground.jpg" />
+               </image>
+            </ImageView>
+            <TextField fx:id="friendField" alignment="CENTER" layoutX="124.0" layoutY="38.0" opacity="0.84" promptText="Username" />
+            <Label fx:id="friendLabel" alignment="CENTER" disable="true" layoutY="134.0" prefHeight="31.0" prefWidth="398.0" text="label" textFill="#eaea38" visible="false">
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets></Label>
+            <ImageView fitHeight="37.0" fitWidth="196.0" layoutX="139.0" layoutY="71.0" onMouseClicked="#sendFriendshipRequest" opacity="0.94" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@send.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+  </content>
+</TitledPane>

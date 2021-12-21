@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="412.0" prefWidth="857.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.LobbyController">
+<children>
+      <ImageView fitHeight="418.0" fitWidth="686.0">
+         <image>
+            <Image url="@jYBRRjn.jpeg" />
+         </image>
+      </ImageView>
+      <SplitPane dividerPositions="0.30741626794258375" layoutX="685.0" layoutY="-2.0" orientation="VERTICAL" prefHeight="420.0" prefWidth="216.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="122.0" prefWidth="215.0">
+               <children>
+                  <ImageView fitHeight="131.0" fitWidth="222.0" layoutX="-3.0" layoutY="-3.0">
+                     <image>
+                        <Image url="@profilebackground.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="usernam" alignment="CENTER" layoutY="90.0" prefHeight="18.0" prefWidth="216.0" text="Username" />
+                  <ImageView fx:id="profilepic" fitHeight="70.0" fitWidth="70.0" layoutX="72.0" layoutY="15.0" onMouseClicked="#toSelfProfile" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@blank-profile-picture-973460_960_720.png" />
+                     </image></ImageView>
+                  <ImageView fx:id="settings" fitHeight="30.0" fitWidth="30.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#toSettings" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@5b64d8e20a5d9fbe5e6da21ba76d3a84c9182efad5fa3fc4c2ea1d81eef33964_200.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <ScrollPane prefHeight="290.0" prefWidth="230.0">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="292.0" prefWidth="193.0">
+                           <children>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="110.0">
+                                 <children>
+                                    <ListView fx:id="friendlistview" layoutX="-0.9" layoutY="-0.05" prefHeight="404.0" prefWidth="115.0" />
+                                    <ListView fx:id="friendonlinelistview" layoutX="114.0" prefHeight="404.0" prefWidth="100.0" />
+                                 </children>
+                              </AnchorPane>
+                           </children></AnchorPane>
+                    </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <ImageView fx:id="ldrimg" fitHeight="86.0" fitWidth="213.0" layoutX="63.0" layoutY="293.0" onMouseClicked="#toLeaderBoard" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@leaderboard.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="crtgamebtn" fitHeight="85.0" fitWidth="195.0" layoutX="59.0" layoutY="59.0" onMouseClicked="#createGame" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@creategame.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="addfimg" fitHeight="85.0" fitWidth="198.0" layoutX="439.0" layoutY="293.0" onMouseClicked="#addFriend" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@addfriends.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="tutoimg" fitHeight="84.0" fitWidth="198.0" layoutX="439.0" layoutY="63.0" onMouseClicked="#toTutorialMode" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@tutorial.png" />
+         </image>
+      </ImageView>
+</children>
+</AnchorPane>
