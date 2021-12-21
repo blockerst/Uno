@@ -16,6 +16,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -64,6 +65,14 @@ public class LobbyController implements Initializable {
     private SplitPane splitLobby;
     @FXML
     private Label usernam;
+    @FXML
+    private ImageView crtgamebtn;
+    @FXML
+    private ImageView tutoimg;
+    @FXML
+    private ImageView ldrimg;
+    @FXML
+    private ImageView addfimg;
 
     private final Image icon = new Image(getClass().getResourceAsStream("logo.png"));
     private Stage stage;
@@ -172,6 +181,24 @@ public class LobbyController implements Initializable {
         clip.setRadius(profilepic.getFitHeight()/2);
         clip.setCenterX(profilepic.getFitWidth()/2);
         clip.setCenterY(profilepic.getFitHeight()/2);
+        Rectangle rec1 = new Rectangle(crtgamebtn.getFitWidth()-9, crtgamebtn.getFitHeight());
+        rec1.setArcHeight(15);
+        rec1.setArcWidth(15);
+        Rectangle rec2 = new Rectangle(tutoimg.getFitWidth()-13, tutoimg.getFitHeight());
+        rec2.setArcHeight(15);
+        rec2.setArcWidth(15);
+        Rectangle rec3 = new Rectangle(ldrimg.getFitWidth()-25, ldrimg.getFitHeight());
+        rec3.setArcHeight(15);
+        rec3.setArcWidth(15);
+        crtgamebtn.setClip(rec1);
+        tutoimg.setClip(rec2);
+        ldrimg.setClip(rec3);
+        Rectangle rec4 = new Rectangle(addfimg.getFitWidth()-25, addfimg.getFitHeight());
+        rec4.setArcHeight(15);
+        rec4.setArcWidth(15);
+        addfimg.setClip(rec4);
+
+
         profilepic.setClip(clip);
         Circle clip2 = new Circle();
         clip2.setRadius(settings.getFitHeight()/2);

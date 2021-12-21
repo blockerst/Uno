@@ -73,7 +73,7 @@
                                 <Font name="System Bold" size="40.0" />
                             </font>
                         </Label>
-                  <ImageView fitHeight="60.0" fitWidth="138.0" layoutX="297.0" layoutY="488.0" onMouseClicked="#toLobby" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="tolobbyimg" fitHeight="60.0" fitWidth="138.0" layoutX="297.0" layoutY="488.0" onMouseClicked="#toLobby" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@tolobby.png" />
                      </image>
@@ -119,7 +119,7 @@
                                                 </AnchorPane>
                                                             </content>
                                                         </ScrollPane>
-                                          <ImageView fitHeight="73.0" fitWidth="143.0" layoutX="50.0" layoutY="450.0" onMouseClicked="#addFriend" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fx:id="addfimg" fitHeight="73.0" fitWidth="143.0" layoutX="50.0" layoutY="450.0" onMouseClicked="#addFriend" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@addfriend.png" />
                                              </image>
