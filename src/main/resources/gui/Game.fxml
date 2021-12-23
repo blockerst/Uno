@@ -37,6 +37,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
@@ -49,59 +50,21 @@
                   <Image url="@light3.png" />
                </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="902.0" layoutY="98.0" prefHeight="17.0" prefWidth="67.0" text="Timer">
+            <Label fx:id="bot2cardnum" alignment="CENTER" layoutX="622.0" layoutY="95.0" prefHeight="17.0" prefWidth="67.0" text="CardNum">
                <font>
-                  <Font size="23.0" />
+                  <Font size="18.0" />
                </font></Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1158.0" layoutY="556.0" prefHeight="28.0" prefWidth="74.0" text="Timer">
+            <Label fx:id="bot1cardnum" alignment="CENTER" contentDisplay="CENTER" layoutX="1165.0" layoutY="317.0" prefHeight="28.0" prefWidth="74.0" text="CardNum">
                <font>
-                  <Font size="23.0" />
+                  <Font size="18.0" />
                </font></Label>
-            <FlowPane fx:id="playercardsflowpane" alignment="CENTER" columnHalignment="CENTER" hgap="5.0" layoutX="200.0" layoutY="658.0" prefHeight="79.0" prefWidth="1200.0" vgap="5.0">
-               <children>
-                  <ImageView fx:id="card1" fitHeight="79.0" fitWidth="57.0" onMouseClicked="#cardSelection" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../cards/Red0.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="card2" fitHeight="79.0" fitWidth="57.0" layoutX="67.0" onMouseClicked="#cardSelection" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../cards/Red0.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="card3" fitHeight="79.0" fitWidth="57.0" layoutX="134.0" onMouseClicked="#cardSelection" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../cardspng/DarkGreen1.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="card4" fitHeight="79.0" fitWidth="57.0" layoutX="201.0" onMouseClicked="#cardSelection" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../cardspng/Dark+4.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="card5" fitHeight="79.0" fitWidth="57.0" layoutX="268.0" onMouseClicked="#cardSelection" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../cardspng/DarkGreen1.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="card6" fitHeight="79.0" fitWidth="57.0" layoutX="335.0" onMouseClicked="#cardSelection" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../cardspng/DarkGreen1.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="card7" fitHeight="79.0" fitWidth="57.0" layoutX="402.0" onMouseClicked="#cardSelection" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../cardspng/DarkGreen1.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </FlowPane>
+            <FlowPane fx:id="playercardsflowpane" alignment="CENTER" columnHalignment="CENTER" hgap="5.0" layoutX="200.0" layoutY="658.0" prefHeight="79.0" prefWidth="1200.0" vgap="5.0" />
             <ImageView fx:id="exit" fitHeight="80.0" fitWidth="80.0" layoutX="1415.0" layoutY="46.0" onMouseClicked="#toLobby" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Untitled%20design/exitmiminalista.png" />
                </image>
             </ImageView>
-            <Label fx:id="redimg" alignment="CENTER" layoutX="738.0" layoutY="52.0" prefHeight="43.0" prefWidth="116.0" text="User3" textAlignment="CENTER">
+            <Label fx:id="redimg" alignment="CENTER" layoutX="676.0" layoutY="52.0" prefHeight="43.0" prefWidth="248.0" text="User3" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="29.0" />
                </font></Label>
@@ -134,17 +97,17 @@
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Label>
-            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="457.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="bot3image" fitHeight="100.0" fitWidth="100.0" layoutX="457.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@bot-icon-2883144_960_720.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="1034.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="bot1image" fitHeight="100.0" fitWidth="100.0" layoutX="1034.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@BotPic-removebg-preview.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="745.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="bot2image" fitHeight="100.0" fitWidth="100.0" layoutX="745.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@BotPic-removebg-preview.png" />
                </image>
@@ -157,11 +120,12 @@
                <font>
                   <Font name="System Bold" size="29.0" />
                </font></Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="360.0" layoutY="555.0" prefHeight="28.0" prefWidth="74.0" text="Timer">
+            <Label fx:id="bot3cardnum" alignment="CENTER" contentDisplay="CENTER" layoutX="345.0" layoutY="526.0" prefHeight="28.0" prefWidth="74.0" text="CardNum">
                <font>
-                  <Font size="23.0" />
+                  <Font size="18.0" />
                </font>
             </Label>
+            <Circle fx:id="colorindicator" fill="#ff0400" layoutX="799.0" layoutY="366.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
          </children>
       </Pane>
    </children>

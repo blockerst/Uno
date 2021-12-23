@@ -13,12 +13,12 @@ public class Game {
     private int stackedPlus;
     private boolean isOver;
 
-    public Game(ArrayList<Player> users){
+    public Game(ArrayList<Player> users, String isDark){
         players = users;
         stackedPlus = 0;
         clockwise = true;
         cardsOnTable = new ArrayList<Card>(52);
-        deck = new Deck(true);
+        deck = new Deck(true, isDark);
         playerNo = 0;
         cardsOnTable.add(0,deck.getTopCard());
         topCard = cardsOnTable.get(0);
@@ -32,19 +32,23 @@ public class Game {
     public void changeFirstTopCard(){
         Card temp;
         temp = topCard;
-        System.out.println("Test " + topCard);
+
         topCard = deck.getTopCard();
         deck.add(temp);
     }
 
     public void distribute(){
         for( int i = 0; i < players.size(); i++ ){
-            for(int j = 0; j < 10; j++){
+            for(int j = 0; j < 1; j++){
                 players.get(i).addCard(topCard);
                 topCard = deck.getTopCard();
             }
         }
     }
+
+    /*public ArrayList<Card> stackedDraw(){
+
+    }*/
 
     public boolean isUno( int playerNo ){
         return players.get(playerNo).checkUno();
@@ -72,11 +76,20 @@ public class Game {
         return playerNo;
     }
 
+    public boolean isPlayable(Card c){
+        return topCard.isPlayable(c);
+    }
+
     public boolean botPlay(int index){
         if( getPlayer(playerNo).getHand().get(index).getNumber() == 14 ||
             getPlayer(playerNo).getHand().get(index).getNumber() == 13)
         { botChooseColor(getPlayer(playerNo).getHand().get(index)); }
-        return play(index);
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return play(index,playerNo);
     }
 
     public int botChooseCard(){
@@ -117,46 +130,54 @@ public class Game {
         c.setColor(players.get(playerNo).getMostColor());
     }
 
-    public boolean play(int index){
-        int player = playerNo;
-        Card temp = players.get(player).getHand().get(index);
-        if( topCard.isPlayable(temp)) {
-            if( players.get(player).checkUno() ){ isOver = true; return true;}
-                if( temp.getSpecial()) {
+    public boolean play(int index,int player){
+        if( player == playerNo) {
+            Card temp = players.get(player).getHand().get(index);
+            if (topCard.isPlayable(temp)) {
+                if (players.get(player).checkUno()) {
+                    isOver = true;
+                    return true;
+                }
+                if (temp.getSpecial()) {
                     if (temp.getNumber() == 10) {
                         stackedPlus += 2;
                     }
-                    if( temp.getNumber() == 12){
+                    if (temp.getNumber() == 12) {
                         clockwise = !clockwise;
-                        if( players.size() == 2) increasePlayerNo();
+                        if (players.size() == 2) increasePlayerNo();
                     }
-                    if( temp.getNumber() == 13) {
-                        if( playerNo == 0) {wildPlayed(temp);}
+                    if (temp.getNumber() == 13) {
+                        if (playerNo == 0) {
+                            wildPlayed(temp);
+                        }
                     }
                     if (temp.getNumber() == 14) {
                         stackedPlus += 4;
-                        if( playerNo == 0) {wildPlayed(temp);}
+                        if (playerNo == 0) {
+                            wildPlayed(temp);
+                        }
                     }
                 }
                 topCard = temp;
                 cardsOnTable.add(temp);
                 players.get(player).playCard(temp);
                 increasePlayerNo();
-                if(clockwise){
-                    if( temp.getNumber() == 11){
+                if (clockwise) {
+                    if (temp.getNumber() == 11) {
                         increasePlayerNo();
                     }
+                } else {
+                    if (temp.getNumber() == 11) increasePlayerNo();
                 }
-                else {
-                    if(temp.getNumber() == 11) increasePlayerNo();
-                }
-            return true;
+                return true;
+            }
         }
     return false;
     }
 
-    public void draw(){
+    public int draw(){
         int i;
+        int drawed = stackedPlus;
         for(i = 0; i < stackedPlus; i++) {
             players.get(playerNo).addCard(deck.getTopCard());
         }
@@ -166,6 +187,7 @@ public class Game {
         if( i != 0){ stackedPlus = 0; }
         players.get(playerNo).checkUno();
         increasePlayerNo();
+        return drawed;
     }
 
     public void increasePlayerNo(){
@@ -186,6 +208,10 @@ public class Game {
 
     public boolean isOver(){
         return isOver;
+    }
+
+    public void setOver(boolean over){
+        isOver = over;
     }
 
     public boolean hasPlus(int playerNo){
@@ -210,27 +236,7 @@ public class Game {
     }
 
     public void wildPlayed(Card c){
-        Scanner sc = new Scanner(System.in);
-        String choice;
-        System.out.println("Pick a color (1)Red/(2)Blue/(3)Yellow/(4)Green");
-        choice = sc.next();
-
-        if( choice.equals("1")){
-            c.setColor("Red");
-        }
-        else if( choice.equals("2")){
-            c.setColor("Blue");
-        }
-        else if( choice.equals("3")){
-            c.setColor("Yellow");
-        }
-        else if( choice.equals("4")){
-            c.setColor("Green");
-        }
-        else{
-            System.out.println("Wrong input try again");
-            wildPlayed(c);
-        }
+        botChooseColor(c);
     }
 
     public int indexPlusOrSkip(int playerNo){

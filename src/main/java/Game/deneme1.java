@@ -32,30 +32,30 @@ public class deneme1 {
         }*/
         Scanner sc = new Scanner(System.in);
         Player p1,p2,p3;
-        Bot b1,b2,b3;
+        Player b1,b2,b3;
         p1 = new Player("Anıl");
-        b1 = new Bot("Artur");
-        b2 = new Bot("Thomas");
-        b3 = new Bot("Bot");
+        b1 = new Player("Artur");
+        b2 = new Player("Thomas");
+        b3 = new Player("Bot");
         p2 = new Player("Oğuz");
         p3 = new Player("Göktuğ");
         ArrayList<Player> players = new ArrayList<>(2);
         players.add(p1);
         players.add(b1);
-        //players.add(b2);
+        players.add(b2);
 
-        Game g = new Game(players);
+        //Game g = new Game(players);
         //g.getDeck().getID();
         //System.out.println(g.getDeck());
 
-        int cardIndex;
+        /*int cardIndex;
         while( !g.isOver() ){
-            System.out.println(g.getPlayer(0).getHand());
+            /*System.out.println(g.getPlayer(0).getHand());
             System.out.println(g.getPlayer(1).getHand());
-            //System.out.println(g.getPlayer(2).getHand());
-            System.out.println(g.getTopCard());
+            System.out.println(g.getPlayer(2).getHand());
+            System.out.println(g.getTopCard());*/
 
-            System.out.print("Turn of player: " + g.whoseTurn()+ "\n");
+            /*System.out.print("Turn of player: " + g.whoseTurn()+ "\n");
             if( g.whoseTurn() == 0) {
                 System.out.print("Pick a card to play(-1 to draw): ");
 
@@ -71,7 +71,7 @@ public class deneme1 {
 
             if( cardIndex >= 0 && g.whoseTurn() == 0){
 
-                if (g.play(cardIndex)) {
+                if (g.play(cardIndex,0)) {
                     System.out.println("Card played succesfully, next player: " + g.whoseTurn());
                 }
                 else{
@@ -100,6 +100,6 @@ public class deneme1 {
                 }
             }
 
-        }
+        }*/
     }
 }

@@ -54,19 +54,19 @@
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <Label alignment="CENTER" layoutX="885.0" layoutY="838.0" prefHeight="17.0" prefWidth="67.0" text="Timer" textFill="#77a9ff" />
-            <Label alignment="CENTER" layoutX="433.0" layoutY="192.0" prefHeight="17.0" prefWidth="67.0" text="Timer" textFill="RED" />
+            <Label fx:id="timerlabel" alignment="CENTER" layoutX="885.0" layoutY="838.0" prefHeight="17.0" prefWidth="67.0" text="Timer" textFill="#77a9ff" />
+            <Label fx:id="bot3cardnum" alignment="CENTER" layoutX="433.0" layoutY="192.0" prefHeight="17.0" prefWidth="67.0" text="CardNum" textFill="RED" />
             <Label alignment="CENTER" layoutX="369.0" layoutY="487.0" prefHeight="21.0" prefWidth="92.0" text="Morpheus" textFill="#fce029">
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <Label alignment="CENTER" layoutX="376.0" layoutY="541.0" prefHeight="17.0" prefWidth="67.0" text="Timer" textFill="#fce029" />
+            <Label fx:id="bot4cardnum" alignment="CENTER" layoutX="376.0" layoutY="541.0" prefHeight="17.0" prefWidth="67.0" text="CardNum" textFill="#fce029" />
             <Label alignment="CENTER" layoutX="1107.0" layoutY="138.0" prefHeight="17.0" prefWidth="73.0" text="Oracle" textFill="#1cb900">
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1121.0" layoutY="192.0" prefHeight="17.0" prefWidth="50.0" text="Timer" textFill="#1cb900" />
-            <FlowPane fx:id="playercardsflowpane" alignment="CENTER" columnHalignment="CENTER" hgap="5.0" layoutX="230.0" layoutY="676.0" prefHeight="79.0" prefWidth="1155.0" vgap="5.0">
+            <Label fx:id="bot2cardnum" alignment="CENTER" contentDisplay="CENTER" layoutX="1121.0" layoutY="192.0" prefHeight="17.0" prefWidth="50.0" text="CardNum" textFill="#1cb900" />
+            <FlowPane fx:id="playercardsflowpane" alignment="CENTER" columnHalignment="CENTER" hgap="5.0" layoutX="230.0" layoutY="656.0" prefHeight="79.0" prefWidth="1155.0" vgap="5.0">
                <children>
 
                </children>
@@ -91,33 +91,33 @@
                </image>
             </ImageView>
             <Circle layoutX="1519.0" layoutY="72.0" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
-            <ImageView fitHeight="102.0" fitWidth="96.0" layoutX="952.0" layoutY="771.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="unobutton" fitHeight="102.0" fitWidth="96.0" layoutX="952.0" layoutY="771.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@unobutton.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1009.0" layoutY="454.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="bot1image" fitHeight="150.0" fitWidth="200.0" layoutX="1009.0" layoutY="454.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@4WVQfq6d_400x400-removebg-preview.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="508.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="bot3image" fitHeight="150.0" fitWidth="200.0" layoutX="508.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Neo-The-Matrix-rol-800x425-removebg-preview.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="463.0" layoutY="443.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="bot4image" fitHeight="150.0" fitWidth="200.0" layoutX="463.0" layoutY="443.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@marcin-blaszczak-m-coat-01-removebg-preview.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="profilepic" fitHeight="150.0" fitWidth="200.0" layoutX="733.0" layoutY="738.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="profilepic" fitHeight="130.0" fitWidth="130.0" layoutX="742.0" layoutY="735.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@blank-profile-picture-973460_960_720.png" />
                </image>
             </ImageView>
             <Rectangle arcHeight="5.0" arcWidth="5.0" height="102.0" layoutX="1.0" layoutY="885.0" stroke="BLACK" strokeType="INSIDE" width="1603.0" />
-            <ImageView fitHeight="114.0" fitWidth="196.0" layoutX="950.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="bot2image" fitHeight="114.0" fitWidth="196.0" layoutX="950.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Matrix-kahin-620x350-removebg-preview.png" />
                </image>
@@ -127,7 +127,8 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="1175.0" layoutY="541.0" prefHeight="17.0" prefWidth="67.0" text="Timer" textFill="#dddddd" />
+            <Label fx:id="bot1cardnum" alignment="CENTER" layoutX="1175.0" layoutY="541.0" prefHeight="17.0" prefWidth="67.0" text="CardNum" textFill="#dddddd" />
+            <Circle fx:id="colorindicator" fill="RED" layoutX="803.0" layoutY="287.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
          </children>
       </Pane>
    </children>

@@ -32,15 +32,13 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.FlowPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<FlowPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GameController">
+<FlowPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GameController">
    <children>
       <Pane fx:id="pane" prefHeight="900.0" prefWidth="1600.0">
          <children>
@@ -49,49 +47,7 @@
                   <Image url="@lightp3.png" />
                </image>
             </ImageView>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1158.0" layoutY="556.0" prefHeight="28.0" prefWidth="74.0" text="Timer">
-               <font>
-                  <Font size="23.0" />
-               </font></Label>
-            <FlowPane fx:id="playercardsflowpane" alignment="CENTER" columnHalignment="CENTER" hgap="5.0" layoutX="200.0" layoutY="658.0" prefHeight="79.0" prefWidth="1200.0" vgap="5.0">
-               <children>
-                  <ImageView fx:id="card1" fitHeight="79.0" fitWidth="57.0" onMouseClicked="#cardSelection" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../cards/Red0.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="card2" fitHeight="79.0" fitWidth="57.0" layoutX="67.0" onMouseClicked="#cardSelection" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../cards/Red0.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="card3" fitHeight="79.0" fitWidth="57.0" layoutX="134.0" onMouseClicked="#cardSelection" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../cardspng/DarkGreen1.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="card4" fitHeight="79.0" fitWidth="57.0" layoutX="201.0" onMouseClicked="#cardSelection" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../cardspng/Dark+4.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="card5" fitHeight="79.0" fitWidth="57.0" layoutX="268.0" onMouseClicked="#cardSelection" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../cardspng/DarkGreen1.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="card6" fitHeight="79.0" fitWidth="57.0" layoutX="335.0" onMouseClicked="#cardSelection" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../cardspng/DarkGreen1.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="card7" fitHeight="79.0" fitWidth="57.0" layoutX="402.0" onMouseClicked="#cardSelection" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../cardspng/DarkGreen1.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </FlowPane>
+            <FlowPane fx:id="playercardsflowpane" alignment="CENTER" columnHalignment="CENTER" hgap="5.0" layoutX="200.0" layoutY="658.0" prefHeight="79.0" prefWidth="1200.0" vgap="5.0" />
             <ImageView fx:id="exit" fitHeight="80.0" fitWidth="80.0" layoutX="1415.0" layoutY="46.0" onMouseClicked="#toLobby" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Untitled%20design/exitmiminalista.png" />
@@ -122,16 +78,12 @@
                   <Image url="@unobutton.png" />
                </image>
             </ImageView>
-            <Label fx:id="timerlabel" alignment="CENTER" contentDisplay="CENTER" layoutX="834.0" layoutY="827.0" prefHeight="20.0" prefWidth="73.0" text="Timer" textFill="#f40000">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font></Label>
-            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="495.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="bot2image" fitHeight="100.0" fitWidth="100.0" layoutX="495.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@bot-icon-2883144_960_720.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="1000.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="bot1image" fitHeight="100.0" fitWidth="100.0" layoutX="1000.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@BotPic-removebg-preview.png" />
                </image>
@@ -144,11 +96,7 @@
                <font>
                   <Font name="System Bold" size="29.0" />
                </font></Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="360.0" layoutY="555.0" prefHeight="28.0" prefWidth="74.0" text="Timer">
-               <font>
-                  <Font size="23.0" />
-               </font>
-            </Label>
+            <Circle fx:id="colorindicator" fill="RED" layoutX="800.0" layoutY="362.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
          </children>
       </Pane>
    </children>

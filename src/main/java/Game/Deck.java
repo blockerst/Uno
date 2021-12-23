@@ -6,22 +6,25 @@ package Game; /**
  * @version 1.00 2021/10/20
  */
 import Database.ConnectionSql;
+import gui.ComboBoxController;
 
 import java.lang.Math;
 import java.util.ArrayList;
 public class Deck {
 	ArrayList<Card> deck;
-    public Deck(boolean fullDeck){
+	String dark;
+    public Deck(boolean fullDeck, String isDark){
     	deck = new ArrayList<Card>();
     	if(fullDeck){
     		initialize();
     		shuffle();
     	}
+    	dark = isDark;
     }
 	//getters
 	public void getID(){
-    	for( Card c: deck){
-    		System.out.println(c.getImageID() + " " + c.getSpecial());
+		for( Card c: deck){
+			System.out.println(c.getImageID());
 		}
 	}
 
@@ -36,33 +39,32 @@ public class Deck {
 		String color = "";
 		boolean isSpecial;
 		String ID = "";
-		//ConnectionSql db = ConnectionSql.getInstance().getDa
-		//getDark;
-		//if( getDark ){ ID = Dark;}
-
+		if( ComboBoxController.dark == null){ ComboBoxController.dark = ""; }
     	for(int i = 0; i < 4; i++){
     		if( i == 0){ color = "Yellow";}
     		else if( i == 1){ color = "Green";}
     		else if( i == 2){ color = "Blue";}
     		else if( i == 3){ color = "Red";}
     		for( int j = 0; j <= 14; j++) {
+    			if( j == 10 || j == 14){ continue; }
 				if( j < 10 ){
 					isSpecial = false;
-					ID += color+j;
-					Card card = new Card(color, j, isSpecial, "@../cards/" + ID +".png");
+					ID = color+j;
+					if(ComboBoxController.dark.equals("dark")){ ComboBoxController.dark = "Dark";}
+					Card card = new Card(color, j, isSpecial, "src/main/resources/cards/"+ ComboBoxController.dark + ID +".png");
 					deck.add(card);
 					if(j != 0){ deck.add(card); }
 				}
 				else {
 					isSpecial = true;
 
-					if( j < 13){ ID += color;}
+					if( j < 13){ ID = color;}
 					if( j == 10){ ID += "+2";}
 					if( j == 11){ ID += "Ban";}
 					if( j == 12){ ID += "Reverse";}
 					if( j == 13){ ID = "color";}
 					if( j == 14){ ID = "+4";}
-					Card card = new Card(color, j, isSpecial, "@../cards/" + ID + ".png");
+					Card card = new Card(color, j, isSpecial, "src/main/resources/cards/" + ComboBoxController.dark + ID + ".png");
 					if( j < 13){ deck.add(card); }
 					deck.add(card);
 				}

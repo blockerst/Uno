@@ -1,5 +1,7 @@
 package Game;
 
+import javafx.scene.image.Image;
+
 import java.util.Scanner;
 
 public class Card {
@@ -33,7 +35,16 @@ public class Card {
         return false;
     }
 
+    public Image makeImage(){
+        return new Image("file:"+ getImageID());
+    }
 
+    public boolean equals( Card c){
+        if( c.getImageID() == this.getImageID()){
+            return true;
+        }
+        return false;
+    }
 
     public String toString(){
         String out = "";

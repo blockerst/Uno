@@ -170,6 +170,7 @@ public class LobbyController implements Initializable {
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
+        stage.setFullScreen(true);
         stage.show();
     }
 
@@ -197,7 +198,6 @@ public class LobbyController implements Initializable {
         rec4.setArcHeight(15);
         rec4.setArcWidth(15);
         addfimg.setClip(rec4);
-
 
         profilepic.setClip(clip);
         Circle clip2 = new Circle();

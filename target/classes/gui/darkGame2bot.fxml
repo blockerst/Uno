@@ -32,16 +32,13 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.FlowPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Circle?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<FlowPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GameController">
+<FlowPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GameController">
    <children>
       <Pane fx:id="pane" prefHeight="900.0" prefWidth="1600.0">
          <children>
@@ -54,14 +51,11 @@
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <Label alignment="CENTER" layoutX="894.0" layoutY="819.0" prefHeight="17.0" prefWidth="67.0" text="Timer" textFill="#77a9ff" />
-            <Label alignment="CENTER" layoutX="489.0" layoutY="302.0" prefHeight="17.0" prefWidth="67.0" text="Timer" textFill="#ffda56" />
             <Label alignment="CENTER" layoutX="1043.0" layoutY="253.0" prefHeight="17.0" prefWidth="73.0" text="Trinity" textFill="#1cb900">
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1055.0" layoutY="302.0" prefHeight="17.0" prefWidth="50.0" text="Timer" textFill="#1cb900" />
-            <FlowPane fx:id="playercardsflowpane" alignment="CENTER" columnHalignment="CENTER" hgap="5.0" layoutX="230.0" layoutY="676.0" prefHeight="79.0" prefWidth="1155.0" vgap="5.0">
+            <FlowPane fx:id="playercardsflowpane" alignment="CENTER" columnHalignment="CENTER" hgap="5.0" layoutX="230.0" layoutY="656.0" prefHeight="79.0" prefWidth="1155.0" vgap="5.0">
                <children>
 
                </children>
@@ -86,27 +80,28 @@
                </image>
             </ImageView>
             <Circle layoutX="1519.0" layoutY="72.0" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
-            <ImageView fitHeight="102.0" fitWidth="96.0" layoutX="957.0" layoutY="742.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="unobutton" fitHeight="102.0" fitWidth="96.0" layoutX="957.0" layoutY="742.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@unobutton.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="940.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="bot1image" fitHeight="150.0" fitWidth="200.0" layoutX="940.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@4WVQfq6d_400x400-removebg-preview.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="119.0" fitWidth="254.0" layoutX="499.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="bot2image" fitHeight="119.0" fitWidth="254.0" layoutX="499.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Neo-The-Matrix-rol-800x425-removebg-preview.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="profilepic" fitHeight="150.0" fitWidth="200.0" layoutX="732.0" layoutY="710.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="profilepic" fitHeight="130.0" fitWidth="130.0" layoutX="749.0" layoutY="735.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@blank-profile-picture-973460_960_720.png" />
                </image>
             </ImageView>
             <Rectangle arcHeight="5.0" arcWidth="5.0" height="104.0" layoutX="-13.0" layoutY="882.0" stroke="BLACK" strokeType="INSIDE" width="1625.0" />
+            <Circle fx:id="colorindicator" fill="RED" layoutX="802.0" layoutY="280.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
          </children>
       </Pane>
    </children>

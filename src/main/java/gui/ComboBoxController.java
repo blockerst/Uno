@@ -28,34 +28,41 @@ public class ComboBoxController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
-    private int number;
+    public static int number;
+    public static String dark;
     @FXML
     public void start(ActionEvent e) throws IOException {
         //int opponentNum = (int) choiceOpp.getValue();
         System.out.println(comb.getSelectionModel().getSelectedItem());
         String selection = comb.getSelectionModel().getSelectedItem();
-        String dark = "";
+        dark = "";
         if(LoginController.db.getDarkThemeDB(LoginController.user))
         {
             dark = "dark";
         }
         if(selection.equals("2"))
         {
+            number = 2;
             root = FXMLLoader.load(getClass().getResource(dark+"Game2bot.fxml"));
-
+            dark = "Dark";
         }
         else if (selection.equals("1"))
         {
+            number = 1;
             root = FXMLLoader.load(getClass().getResource(dark+"Game1bot.fxml"));
+            dark = "Dark";
         }
         else if (selection.equals("4"))
         {
+            number = 4;
             root = FXMLLoader.load(getClass().getResource(dark+"Game4bot.fxml"));
+            dark = "Dark";
         }
         else
         {
+            number = 3;
             root = FXMLLoader.load(getClass().getResource(dark+"Game.fxml"));
-
+            dark = "Dark";
         }
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         stage.close();

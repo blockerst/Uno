@@ -32,16 +32,13 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.FlowPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Circle?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<FlowPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GameController">
+<FlowPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GameController">
    <children>
       <Pane fx:id="pane" prefHeight="900.0" prefWidth="1600.0">
          <children>
@@ -54,9 +51,7 @@
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <Label alignment="CENTER" layoutX="883.0" layoutY="832.0" prefHeight="17.0" prefWidth="67.0" text="Timer" textFill="#77a9ff" />
-            <Label alignment="CENTER" layoutX="861.0" layoutY="130.0" prefHeight="17.0" prefWidth="67.0" text="Timer" textFill="RED" />
-            <FlowPane fx:id="playercardsflowpane" alignment="CENTER" columnHalignment="CENTER" hgap="5.0" layoutX="230.0" layoutY="676.0" prefHeight="79.0" prefWidth="1155.0" vgap="5.0">
+            <FlowPane fx:id="playercardsflowpane" alignment="CENTER" columnHalignment="CENTER" hgap="5.0" layoutX="230.0" layoutY="646.0" prefHeight="79.0" prefWidth="1155.0" vgap="5.0">
                <children>
 
                </children>
@@ -81,12 +76,12 @@
                </image>
             </ImageView>
             <Circle layoutX="1519.0" layoutY="72.0" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
-            <ImageView fitHeight="102.0" fitWidth="96.0" layoutX="952.0" layoutY="771.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="unobutton" fitHeight="102.0" fitWidth="96.0" layoutX="952.0" layoutY="771.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@unobutton.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="688.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="bot1image" fitHeight="150.0" fitWidth="200.0" layoutX="688.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Matrix-kahin-620x350-removebg-preview.png" />
                </image>
@@ -99,6 +94,7 @@
                </image>
             </ImageView>
             <Rectangle arcHeight="5.0" arcWidth="5.0" height="113.0" layoutX="-21.0" layoutY="887.0" stroke="BLACK" strokeType="INSIDE" width="1640.0" />
+            <Circle fx:id="colorindicator" fill="RED" layoutX="800.0" layoutY="277.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
          </children>
       </Pane>
    </children>
