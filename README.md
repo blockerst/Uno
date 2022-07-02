@@ -1,8 +1,8 @@
 Contributors to the project: Oğuz Akın, Anıl İlağa and Göktuğ Yılmaz.
-This project is an uno game project that allows players to play UNO with number of bots they have chosen.
+This project is a Uno game project that allows players to play Uno with the number of bots they have chosen.
 It uses a database so that players can create an account, add friends, see other players' scores on the leaderboard.
-In order to play the game players should sign in to an account and click the Create Game button. 
-After the game finishes they need to click on the exit button on top right.
+In order to play the game, players should sign up or sign in to their account. 
+Technologies used: JavaFX, MySQL, Java.
 Dependenciies are:
 dlsc-software-consulting-gmbh / FormsFX com.dlsc.formsfx:formsfx-core,
 eu.hansolo:tilesfx,
