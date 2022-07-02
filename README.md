@@ -3,7 +3,7 @@ This project is a Uno game project that allows players to play Uno with the numb
 It uses a database so that players can create an account, add friends, see other players' scores on the leaderboard.
 In order to play the game, players should sign up or sign in to their account. 
 Technologies used: JavaFX, MySQL, Java.
-Dependenciies are:
+Dependencies are:
 dlsc-software-consulting-gmbh / FormsFX com.dlsc.formsfx:formsfx-core,
 eu.hansolo:tilesfx,
 net.synedra:validatorfx,
